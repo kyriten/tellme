@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+    body {
+        @apply selection:bg-red-500 selection:text-gray-200;
+    }
+
+    .nav-menu-tm {
+        @apply text-sm text-gray-500 hover:text-red-800 font-bold flex items-center;
+    }
+
+    .menu-tm {
+        @apply ps-1;
+    }
+
+    h1:after {
+        content: attr(data-text);
+        @apply text-red-800;
+    }
+}

@@ -840,13 +840,24 @@
             }
         }
     </style>
+
+    <!-- CDN Script: Split Type 0.3.3 from Typescript-->
+    <script src="https://unpkg.com/split-type"></script>
+
+    <!-- CDN Script: GSAP 3.12.2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- CDN Script: Bootstrap 5.3.1-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
     <!-- Web: Navbar -->
     <nav class="relative container py-2 flex justify-between items-center bg-white">
         <!-- Web: Credential -->
-        <a class="text-3xl font-bold leading-none" href="#">
+        <a class="text-3xl font-bold leading-none" href="/">
             <svg width="64" height="32" viewBox="0 0 1080 480" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M169.6 384.2C162.667 387.4 154.667 389.933 145.6 391.8C136.533 393.933 127.333 395 118 395C102.533 395 90.1333 391.8 80.8 385.4C71.4667 379 64.6667 370.067 60.4 358.6C56.4 347.133 54.4 334.067 54.4 319.4V228.2H21.6V188.2H54.4V135.4H100.4V188.2H163.6V228.2H100.4V319.4C100.4 331.667 102.667 340.2 107.2 345C112 349.533 118.8 351.8 127.6 351.8C131.867 351.8 136.4 351.4 141.2 350.6C146.267 349.533 151.867 347.8 158 345.4L169.6 384.2ZM360.584 379.4C346.718 385 333.651 389 321.384 391.4C309.118 393.8 297.518 395 286.584 395C256.451 395 233.651 386.467 218.184 369.4C202.718 352.333 194.984 329.667 194.984 301.4V277.4C194.984 258.467 198.451 242.067 205.384 228.2C212.318 214.333 222.184 203.533 234.984 195.8C247.784 188.067 262.851 184.2 280.184 184.2C294.318 184.2 307.518 187.133 319.784 193C332.318 198.6 342.451 207.533 350.184 219.8C358.184 231.8 362.184 247.267 362.184 266.2C362.184 271.8 361.784 277.8 360.984 284.2C360.184 290.333 358.851 296.867 356.984 303.8H239.384C239.918 320.333 244.051 332.733 251.784 341C259.518 349.267 271.918 353.4 288.984 353.4C298.051 353.4 307.384 352.333 316.984 350.2C326.851 348.067 336.984 344.867 347.384 340.6L360.584 379.4ZM280.184 223C267.918 223 258.318 227 251.384 235C244.718 242.733 240.851 253.933 239.784 268.6H316.584C316.851 267.267 316.984 266.067 316.984 265C316.984 263.667 316.984 262.467 316.984 261.4C316.984 248.6 313.384 239 306.184 232.6C298.984 226.2 290.318 223 280.184 223ZM413.978 333.8V95H459.978V333.8C459.978 337.8 460.911 341.667 462.778 345.4C464.911 348.867 468.911 350.6 474.778 350.6H481.178V393H469.978C454.778 393 443.178 390.067 435.178 384.2C427.178 378.333 421.578 370.867 418.378 361.8C415.445 352.733 413.978 343.4 413.978 333.8ZM524.525 333.8V95H570.525V333.8C570.525 337.8 571.458 341.667 573.325 345.4C575.458 348.867 579.458 350.6 585.325 350.6H591.725V393H580.525C565.325 393 553.725 390.067 545.725 384.2C537.725 378.333 532.125 370.867 528.925 361.8C525.992 352.733 524.525 343.4 524.525 333.8ZM682.272 250.6V391H636.272V188.2H679.872V215C692.405 204.067 704.005 196.2 714.672 191.4C725.339 186.6 736.272 184.2 747.472 184.2C772.272 184.2 789.205 195.133 798.272 217C811.605 205.267 824.005 196.867 835.472 191.8C846.939 186.733 858.539 184.2 870.272 184.2C888.939 184.2 903.205 190.467 913.072 203C922.939 215.267 927.872 232.6 927.872 255V391H881.872V260.6C881.872 238.2 873.339 227 856.272 227C849.605 227 842.272 228.6 834.272 231.8C826.272 235 816.539 241.267 805.072 250.6V391H759.072V260.6C759.072 238.2 750.539 227 733.472 227C726.805 227 719.472 228.6 711.472 231.8C703.472 235 693.739 241.267 682.272 250.6Z"
@@ -877,32 +888,31 @@
 
         <!-- Web: Parent Menu -->
         <ul
-            class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-            <li><a class="text-sm text-gray-500 hover:text-red-800 font-bold" href="/">Home</a></li>
-            <li class="text-gray-300">
-                <svg class="w-4 h-4 current-fill" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+            class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+            <li class="nav-menu-tm">
+                <svg class="w-6 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
+                <a class="menu-tm" href="#txt-desc">Home</a>
             </li>
-            <li><a class="text-sm text-red-500 font-bold" href="#">About Us</a></li>
-            <li class="text-gray-300">
-                <svg class="w-4 h-4 current-fill" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+            <li class="nav-menu-tm">
+                <svg class="w-6 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                 </svg>
+                <a class="menu-tm" href="#"> About Us</a>
             </li>
-            <li><a class="text-sm text-gray-500 hover:text-gray-500 font-bold" href="#">Services</a></li>
-            <li class="text-gray-300">
-                <svg class="w-4 h-4 current-fill" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+            <li class="nav-menu-tm">
+                <svg class="w-6 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
                 </svg>
+                <a class="menu-tm" href="#">Services</a>
             </li>
-            <li><a class="text-sm text-gray-500 hover:text-gray-500 font-bold" href="#">tellMe</a></li>
         </ul>
 
         <!-- Web: Auth -->
@@ -961,10 +971,6 @@
                         <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
                             href="#">Services</a>
                     </li>
-                    <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
-                            href="#">tellMe</a>
-                    </li>
                 </ul>
             </div>
             <div class="mt-auto">
@@ -984,10 +990,26 @@
         </nav>
     </div>
 
-    <!-- CDN Script: Bootstrap 5.3.1-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
+    <section>
+        <div class="container relative">
+            <div class="flex items-center h-screen justify-center">
+                <div class="absolute txt-heading grid justify-items-center">
+                    <h1 class="font-bold text-7xl" id="txt-welcome"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);">WELCOME</h1>
+                    <h1 class="font-bold text-7xl" id="txt-to"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);">CLIENT</h1>
+                </div>
+                <div class="absolute txt-desc container justify-items-start flex justify-between items-center">
+                    <div class="grid">
+                        <h1 class="font-bold text-9xl" data-text="i">tellm</h1>
+                        <h1 class="text-2xl italic tracking-wider justify-self-center">keep an eye on your asset
+                        </h1>
+                    </div>
+                    <img class="sm:invisible" src="images/person.svg" alt="person" width="23%">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Vanilla Script: Humberger -->
     <script>
@@ -1031,6 +1053,59 @@
                 }
             }
         });
+    </script>
+
+    <script>
+        let txtWelcome = new SplitType('#txt-welcome')
+        let charWelcome = document.querySelectorAll('.char')
+
+        for (i = 0; i < charWelcome.length; i++) {
+            charWelcome[i].classList.add('translate-y-full')
+        }
+
+        gsap.to('.char', {
+            y: 0,
+            stagger: 0.05,
+            delay: 0.02,
+            duration: 0.5,
+        })
+        gsap.to('.char', {
+            opacity: 0,
+            stagger: -0.05,
+        }, '+=4')
+
+        let txtTo = new SplitType('#txt-to')
+        let charTo = document.querySelectorAll('.char')
+        for (j = 0; j < charTo.length; j++) {
+            charTo[j].classList.add('translate-y-full')
+        }
+
+        gsap.to('.char', {
+            y: 0,
+            stagger: -0.05,
+            delay: 0.02,
+            duration: 0.5,
+        })
+        gsap.to('.char', {
+            opacity: 0,
+            stagger: 0.05,
+        }, '-=2')
+
+        //Desc
+        let tl = gsap.timeline({
+            defaults: {
+                ease: "none"
+            }
+        })
+
+        tl.from(".txt-desc", {
+            duration: 1,
+            opacity: 0
+        }, 3)
+        tl.to(".txt-heading", {
+            duration: 1,
+            opacity: 0
+        }, 2)
     </script>
 </body>
 
