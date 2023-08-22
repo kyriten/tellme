@@ -14,27 +14,18 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
-            keyframes: {
-                typing: {
-                    "0%": {
-                        width: "0%",
-                        visibility: "hidden",
-                    },
-                    "100%": {
-                        width: "100%",
-                    },
-                },
-                blink: {
-                    "50%": {
-                        borderColor: "transparent",
-                    },
-                    "100%": {
-                        borderColor: "white",
-                    },
+            container: {
+                center: true,
+                padding: {
+                    DEFAULT: "1rem",
+                    sm: "2rem",
+                    lg: "4rem",
+                    xl: "5rem",
+                    "2xl": "6rem",
                 },
             },
-            animation: {
-                typing: "typing 15s steps(150) infinite alternate, blink 0.7s infinite",
+            scale: {
+                "-100": "-1",
             },
         },
     },

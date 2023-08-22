@@ -19,4 +19,40 @@
         content: attr(data-text);
         @apply text-red-800;
     }
+    #gearLtr {
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        animation-name: rotateLtr;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }
+    #gearRtl {
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        animation-name: rotateRtl;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes rotateLtr {
+        from {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(300deg);
+        }
+        to {
+            transform: rotate(150deg);
+        }
+    }
+    @keyframes rotateRtl {
+        from {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(-120deg);
+        }
+        to {
+            transform: rotate(-20deg);
+        }
+    }
 }
