@@ -985,10 +985,20 @@
             </ul>
 
             <!-- Web: Auth -->
-            <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-200 hover:bg-gray-100 text-sm text-gray-700 font-bold rounded-xl transition duration-200"
-                href="#">Sign In</a>
-            <a class="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-white font-bold rounded-xl transition duration-200"
-                href="#">Sign up</a>
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ url('/dashboard') }}"
+                        class="font-semibold lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-white rounded-xl transition duration-200">Back
+                        to Dashboard</a>
+                @else
+                    <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-200 hover:bg-gray-100 text-sm text-gray-700 font-bold rounded-xl transition duration-200"
+                        href="{{ route('login') }}">Sign In</a>
+                    @if (Route::has('register'))
+                        <a class="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                            href="{{ route('register') }}">Sign up</a>
+                    @endif
+                @endauth
+            @endif
         </div>
     </nav>
 
@@ -1077,8 +1087,9 @@
                 <div class="absolute txt-desc container justify-items-start flex justify-between items-center">
                     <div class="grid">
                         <h1 class="font-bold text-9xl" data-text="i">tellm</h1>
-                        <h1 class="text-2xl italic tracking-wider justify-self-center">keep an eye on your asset
-                        </h1>
+                        <blockquote class="text-2xl italic tracking-wider justify-self-center">keep an eye on your
+                            asset
+                        </blockquote>
                     </div>
                     <!-- Image -->
                     <svg class="transform -scale-x-100" xmlns="http://www.w3.org/2000/svg"
@@ -1904,9 +1915,10 @@
                 <figure>
                     <div class="grid py-14">
                         <h1 class="text-center font-bold text-9xl" data-text="i">tellm</h1>
-                        <h1 class="text-[26px]/[24px] italic tracking-wider justify-self-center">keep an eye on your
+                        <blockquote class="text-[26px]/[24px] italic tracking-wider justify-self-center">keep an eye on
+                            your
                             asset
-                        </h1>
+                        </blockquote>
                     </div>
                     <figcaption class="text-justify">Tellmi is an application made to help any worker at Setiajaya
                         Toyota for maintenance their hardware or software or networks integrated for branch of Setiajaya
@@ -1919,7 +1931,8 @@
             <div class="flex-auto w-32 ml-2">
                 <aside>
                     <article>
-                        <h1 class="text-center text-[22px]"> Please <strong class="text-[#991b1b]"> sign up </strong> before using this app
+                        <h1 class="text-center text-[22px]"> Please <strong class="text-[#991b1b]"> sign up </strong>
+                            before using this app
                         </h1>
                         <h1 class="text-center text-[17px] my-2">Thank you!<span
                                 style='font-size:20px;'>&#9786;</span>
@@ -2003,6 +2016,11 @@
                                         id="grid-zip" type="text" placeholder="16424">
                                 </div>
                             </div>
+                            <div class="flex items-center justify-end mt-4">
+                                <x-secondary-button>
+                                    {{ 'Sign Up' }}
+                                </x-secondary-button>
+                            </div>
                         </form>
                     </div>
                 </aside>
@@ -2069,8 +2087,9 @@
                 <div class="flex">
                     <div class="grid mb-2">
                         <h1 class="text-start font-bold text-5xl" data-text="i">tellm</h1>
-                        <h1 class="text-[10px] italic tracking-wider justify-self-start">keep an eye on your asset
-                        </h1>
+                        <blockquote class="text-[10px] italic tracking-wider justify-self-start">keep an eye on your
+                            asset
+                        </blockquote>
                     </div>
                     <div class="sub-section flex items-center">
                         <h1 class="ps-5 text-justify text-[12px]">tellmi App has been made by Division IT to Improve
