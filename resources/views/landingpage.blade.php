@@ -44,13 +44,14 @@
             line-height: 1.5;
             -webkit-text-size-adjust: 100%;
             -moz-tab-size: 4;
-            tab-size: 4;
+            tab-size: 21;
             font-family: Figtree, sans-serif;
             font-feature-settings: normal
         }
 
         body {
             margin: 0;
+            padding: 0;
             line-height: inherit
         }
 
@@ -945,20 +946,33 @@
             </a>
 
             <!-- Mobile: Hidden Navbar Burger -->
-            <div class="lg:hidden">
-                <button class="navbar-burger flex items-center text-red-600 p-3">
-                    <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <title>Mobile menu</title>
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                    </svg>
-                </button>
-            </div>
+            @if (Route::has('login'))
+                @auth
+                    <div class="hidden">
+                        <button class="navbar-burger flex items-center text-red-600 p-3">
+                            <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <title>Mobile menu</title>
+                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                @else
+                    <div class="lg:hidden">
+                        <button class="navbar-burger flex items-center text-red-600 p-3">
+                            <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <title>Mobile menu</title>
+                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                @endauth
+            @endif
 
             <!-- Web: Parent Menu -->
             <ul
                 class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
                 <li class="nav-menu-tm">
-                    <a class="menu-tm scroll-smooth flex" href="#txt-desc"><svg class="w-6 h-5 mr-1"
+                    <a class="flex menu-tm scroll-smooth" href="#txt-desc"><svg class="w-6 h-5 mr-1"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -966,7 +980,7 @@
                         </svg>Home</a>
                 </li>
                 <li class="nav-menu-tm">
-                    <a class="menu-tm scroll-smooth flex" href="#about-us"><svg class="w-6 h-5 mr-1"
+                    <a class="flex menu-tm scroll-smooth" href="#about-us"><svg class="w-6 h-5 mr-1"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -974,8 +988,7 @@
                         </svg>About Us</a>
                 </li>
                 <li class="nav-menu-tm">
-
-                    <a class="menu-tm flex" href="#services"><svg class="w-6 h-5 mr-1"
+                    <a class="flex menu-tm" href="#services"><svg class="w-6 h-5 mr-1"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -987,8 +1000,8 @@
             <!-- Web: Auth -->
             @if (Route::has('login'))
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="font-semibold lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-white rounded-xl transition duration-200">Back
+                    <a class="font-semibold lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-white rounded-xl transition duration-200"
+                        href="{{ url('/dashboard') }}">Back
                         to Dashboard</a>
                 @else
                     <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-200 hover:bg-gray-100 text-sm text-gray-700 font-bold rounded-xl transition duration-200"
@@ -1041,16 +1054,28 @@
             <div>
                 <ul>
                     <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
-                            href="#txt-desc">Home</a>
+                        <a class="flex p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
+                            href="#txt-desc"><svg class="w-6 h-5 mr-1" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>Home</a>
                     </li>
                     <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
-                            href="#about-us">About Us</a>
+                        <a class="flex p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
+                            href="#about-us"><svg class="w-6 h-5 mr-1" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                            </svg>About Us</a>
                     </li>
                     <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
-                            href="#services">Services</a>
+                        <a class="flex p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded"
+                            href="#services"><svg class="w-6 h-5 mr-1" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                            </svg>Services</a>
                     </li>
                 </ul>
             </div>
@@ -1058,9 +1083,9 @@
                 <!-- Mobile: Auth -->
                 <div class="pt-6">
                     <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-200 hover:bg-gray-100 text-gray-700 rounded-xl"
-                        href="#">Sign in</a>
+                        href="{{ route('login') }}">Sign in</a>
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-red-600 hover:bg-red-700 rounded-xl"
-                        href="#">Sign Up</a>
+                        href="{{ route('register') }}">Sign Up</a>
                 </div>
 
                 <!-- Mobile: Copyright Credential -->
@@ -1073,10 +1098,10 @@
 
     <!-- Welcome Section -->
     <section id="txt-desc">
-        <div class="relative container">
+        <div class="container">
             <!-- Heading Section-->
-            <div class="flex items-center h-screen justify-center">
-                <!-- Heading -->
+            <div class="flex items-center h-screen justify-around">
+                <!-- Welcome Animation -->
                 <div class="absolute txt-heading grid justify-items-center">
                     <h1 class="font-bold text-7xl" id="txt-welcome"
                         style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);">WELCOME</h1>
@@ -1084,15 +1109,15 @@
                         style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);">CLIENT</h1>
                 </div>
                 <!-- Description -->
-                <div class="absolute txt-desc container justify-items-start flex justify-between items-center">
-                    <div class="grid">
+                <div class="txt-desc container flex items-center">
+                    <div class="flex-1 block text-center">
                         <h1 class="font-bold text-9xl" data-text="i">tellm</h1>
-                        <blockquote class="text-2xl italic tracking-wider justify-self-center">keep an eye on your
+                        <blockquote class="text-2xl italic tracking-wider">keep an eye on your
                             asset
                         </blockquote>
                     </div>
                     <!-- Image -->
-                    <svg class="transform -scale-x-100" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="flex-1 transform -scale-x-100" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3710 3710" width="50%">
                         <style type="text/css">
                             .st0 {
@@ -1288,8 +1313,8 @@
                                         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="2791.6138"
                                             y1="2100.3186" x2="2374.2336" y2="979.9986"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#FFC444" />
-                                            <stop offset="1" style="stop-color:#F36F56" />
+                                            <stop style="stop-color:#FFC444" offset="0" />
+                                            <stop style="stop-color:#F36F56" offset="1" />
                                         </linearGradient>
                                         <path class="st2"
                                             d="M1879.7,2820.3c179,21.5,410,23.3,639.8-50.9c58.7-18.9,421-135.9,398.1-297.5
@@ -1305,8 +1330,8 @@
                                 c-94.7,203.8-82.4,257.9-153.1,403.5C2146.2,2520.9,2053.8,2667.4,1879.7,2820.3L1879.7,2820.3z" />
                                             </defs>
                                             <clipPath id="SVGID_00000127031899760864623100000000883129634562618251_">
-                                                <use xlink:href="#SVGID_00000022538472561850070350000002643462308191675050_"
-                                                    style="overflow:visible;" />
+                                                <use style="overflow:visible;"
+                                                    xlink:href="#SVGID_00000022538472561850070350000002643462308191675050_" />
                                             </clipPath>
                                             <g
                                                 style="clip-path:url(#SVGID_00000127031899760864623100000000883129634562618251_);">
@@ -1337,8 +1362,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="2091.937" y1="3197.4041"
                                                 x2="1140.8768" y2="444.3442"
                                                 gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                                <stop offset="0" style="stop-color:#FF9085" />
-                                                <stop offset="1" style="stop-color:#FB6FBB" />
+                                                <stop style="stop-color:#FF9085" offset="0" />
+                                                <stop style="stop-color:#FB6FBB" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000033350637724485586140000009367054966716290462_);"
@@ -1359,8 +1384,8 @@
                                                 </defs>
                                                 <clipPath
                                                     id="SVGID_00000123407137779078737520000013882494782706083739_">
-                                                    <use xlink:href="#SVGID_00000015350997620400229620000001167805797654223291_"
-                                                        style="overflow:visible;" />
+                                                    <use style="overflow:visible;"
+                                                        xlink:href="#SVGID_00000015350997620400229620000001167805797654223291_" />
                                                 </clipPath>
                                                 <g
                                                     style="clip-path:url(#SVGID_00000123407137779078737520000013882494782706083739_);">
@@ -1407,8 +1432,8 @@
                                                 </defs>
                                                 <clipPath
                                                     id="SVGID_00000053534698346659063580000004887689387426503566_">
-                                                    <use xlink:href="#SVGID_00000050633059010974272060000010421419958864818327_"
-                                                        style="overflow:visible;" />
+                                                    <use style="overflow:visible;"
+                                                        xlink:href="#SVGID_00000050633059010974272060000010421419958864818327_" />
                                                 </clipPath>
                                                 <g
                                                     style="clip-path:url(#SVGID_00000053534698346659063580000004887689387426503566_);">
@@ -1471,8 +1496,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1668.1692" y1="1839.1456"
                                                 x2="1163.2692" y2="776.8657"
                                                 gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                                <stop offset="0" style="stop-color:#444B8C" />
-                                                <stop offset="1" style="stop-color:#26264F" />
+                                                <stop style="stop-color:#444B8C" offset="0" />
+                                                <stop style="stop-color:#26264F" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000110456082566933695750000001110487446484569774_);"
@@ -1490,8 +1515,8 @@
                                             gradientUnits="userSpaceOnUse" x1="1293.0977" y1="1459.13"
                                             x2="1256.6677" y2="820.7001"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#AA80F9" />
-                                            <stop offset="1" style="stop-color:#6165D7" />
+                                            <stop style="stop-color:#AA80F9" offset="0" />
+                                            <stop style="stop-color:#6165D7" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000132801990489031177760000000258247592916244123_);"
@@ -1503,8 +1528,8 @@
                                             gradientUnits="userSpaceOnUse" x1="2748.9875" y1="692.3358"
                                             x2="2840.0444" y2="692.3358"
                                             gradientTransform="matrix(-0.9642 0.2651 -0.2651 -0.9642 4585.6372 3078.2004)">
-                                            <stop offset="0" style="stop-color:#444B8C" />
-                                            <stop offset="1" style="stop-color:#26264F" />
+                                            <stop style="stop-color:#444B8C" offset="0" />
+                                            <stop style="stop-color:#26264F" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000127004589587396275060000000484870847367515541_);"
@@ -1516,8 +1541,8 @@
                                             gradientUnits="userSpaceOnUse" x1="2677.7292" y1="647.843"
                                             x2="2716.1194" y2="727.3229"
                                             gradientTransform="matrix(-0.9802 0.1978 -0.1978 -0.9802 4450.1709 3258.4302)">
-                                            <stop offset="0" style="stop-color:#FFC444" />
-                                            <stop offset="1" style="stop-color:#F36F56" />
+                                            <stop style="stop-color:#FFC444" offset="0" />
+                                            <stop style="stop-color:#F36F56" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000048486576303576149320000013405890758026359424_);"
@@ -1528,8 +1553,8 @@
                                             gradientUnits="userSpaceOnUse" x1="2891.6274" y1="698.1921"
                                             x2="2982.6853" y2="698.1921"
                                             gradientTransform="matrix(-0.9642 0.2651 -0.2651 -0.9642 4585.6372 3078.2004)">
-                                            <stop offset="0" style="stop-color:#444B8C" />
-                                            <stop offset="1" style="stop-color:#26264F" />
+                                            <stop style="stop-color:#444B8C" offset="0" />
+                                            <stop style="stop-color:#26264F" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000142872759558690892070000011055494989738064567_);"
@@ -1541,8 +1566,8 @@
                                             gradientUnits="userSpaceOnUse" x1="2820.4436" y1="643.851"
                                             x2="2858.8435" y2="723.3209"
                                             gradientTransform="matrix(-0.9802 0.1978 -0.1978 -0.9802 4450.1709 3258.4302)">
-                                            <stop offset="0" style="stop-color:#FFC444" />
-                                            <stop offset="1" style="stop-color:#F36F56" />
+                                            <stop style="stop-color:#FFC444" offset="0" />
+                                            <stop style="stop-color:#F36F56" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000132063541530359639720000012478140350761635006_);"
@@ -1553,8 +1578,8 @@
                                             gradientUnits="userSpaceOnUse" x1="1133.2969" y1="1468.2501"
                                             x2="1096.8668" y2="829.8202"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#AA80F9" />
-                                            <stop offset="1" style="stop-color:#6165D7" />
+                                            <stop style="stop-color:#AA80F9" offset="0" />
+                                            <stop style="stop-color:#6165D7" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000173121290546862208610000009942092546267893901_);"
@@ -1567,8 +1592,8 @@
                                             gradientUnits="userSpaceOnUse" x1="948.9396" y1="962.2403"
                                             x2="1168.6697" y2="1240.4703"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#AA80F9" />
-                                            <stop offset="1" style="stop-color:#6165D7" />
+                                            <stop style="stop-color:#AA80F9" offset="0" />
+                                            <stop style="stop-color:#6165D7" offset="1" />
                                         </linearGradient>
 
                                         <path
@@ -1582,8 +1607,8 @@
                                             gradientUnits="userSpaceOnUse" x1="919.7104" y1="1480.4393"
                                             x2="883.2804" y2="841.9994"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#AA80F9" />
-                                            <stop offset="1" style="stop-color:#6165D7" />
+                                            <stop style="stop-color:#AA80F9" offset="0" />
+                                            <stop style="stop-color:#6165D7" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000119100476792337674550000000355245199325921190_);"
@@ -1596,8 +1621,8 @@
                                             gradientUnits="userSpaceOnUse" x1="1263.6354" y1="627.9778"
                                             x2="1569.5616" y2="1015.3357"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#FF9085" />
-                                            <stop offset="1" style="stop-color:#FB6FBB" />
+                                            <stop style="stop-color:#FF9085" offset="0" />
+                                            <stop style="stop-color:#FB6FBB" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000089555559272759058050000005053626317454728100_);"
@@ -1610,8 +1635,8 @@
                                             gradientUnits="userSpaceOnUse" x1="1445.7977" y1="985.743"
                                             x2="1090.8777" y2="592.6132"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#FF9085" />
-                                            <stop offset="1" style="stop-color:#FB6FBB" />
+                                            <stop style="stop-color:#FF9085" offset="0" />
+                                            <stop style="stop-color:#FB6FBB" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000123399508641949323040000016702831200336750985_);"
@@ -1626,8 +1651,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1278.7992" y1="883.3896"
                                                 x2="1228.9691" y2="1024.5797"
                                                 gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                                <stop offset="0" style="stop-color:#311944" />
-                                                <stop offset="1" style="stop-color:#893976" />
+                                                <stop style="stop-color:#311944" offset="0" />
+                                                <stop style="stop-color:#893976" offset="1" />
                                             </linearGradient>
                                             <polygon
                                                 style="fill:url(#SVGID_00000165956059803849680010000016117245770830731398_);"
@@ -1639,8 +1664,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1061.1111" y1="1087.9501"
                                                 x2="1079.3811" y2="961.7101"
                                                 gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                                <stop offset="0" style="stop-color:#311944" />
-                                                <stop offset="1" style="stop-color:#893976" />
+                                                <stop style="stop-color:#311944" offset="0" />
+                                                <stop style="stop-color:#893976" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000144308613530866178420000013490207862898221498_);"
@@ -1652,8 +1677,8 @@
                                             gradientUnits="userSpaceOnUse" x1="1055.6254" y1="1060.2937"
                                             x2="1158.89" y2="1060.2937"
                                             gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                            <stop offset="0" style="stop-color:#FFC444" />
-                                            <stop offset="1" style="stop-color:#F36F56" />
+                                            <stop style="stop-color:#FFC444" offset="0" />
+                                            <stop style="stop-color:#F36F56" offset="1" />
                                         </linearGradient>
                                         <path
                                             style="fill:url(#SVGID_00000176724967372182366090000016174862755856983961_);"
@@ -1667,8 +1692,8 @@
                                                     gradientUnits="userSpaceOnUse" x1="1423.1512" y1="1076.8907"
                                                     x2="1326.0012" y2="1214.851"
                                                     gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                                    <stop offset="0" style="stop-color:#444B8C" />
-                                                    <stop offset="1" style="stop-color:#26264F" />
+                                                    <stop style="stop-color:#444B8C" offset="0" />
+                                                    <stop style="stop-color:#26264F" offset="1" />
                                                 </linearGradient>
                                                 <path
                                                     style="fill:url(#SVGID_00000106147445402956646670000015482041956679072147_);"
@@ -1681,8 +1706,8 @@
                                                     gradientUnits="userSpaceOnUse" x1="1236.7878" y1="848.5812"
                                                     x2="1449.4078" y2="1280.451"
                                                     gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                                    <stop offset="0" style="stop-color:#311944" />
-                                                    <stop offset="1" style="stop-color:#893976" />
+                                                    <stop style="stop-color:#311944" offset="0" />
+                                                    <stop style="stop-color:#893976" offset="1" />
                                                 </linearGradient>
                                                 <path
                                                     style="fill:url(#SVGID_00000125560399827797845740000016750724009252199575_);"
@@ -1696,8 +1721,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1132.9291" y1="1125.7717"
                                                 x2="1600.0099" y2="1125.7717"
                                                 gradientTransform="matrix(1 0 0 -1 0 3710)">
-                                                <stop offset="0" style="stop-color:#311944" />
-                                                <stop offset="1" style="stop-color:#893976" />
+                                                <stop style="stop-color:#311944" offset="0" />
+                                                <stop style="stop-color:#893976" offset="1" />
                                             </linearGradient>
 
                                             <path
@@ -1714,8 +1739,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1144.5505" y1="1182.9604"
                                                 x2="1154.8306" y2="1456.9506"
                                                 gradientTransform="matrix(0.9171 0.3987 0.3987 -0.9171 -481.1728 2969.5884)">
-                                                <stop offset="0" style="stop-color:#FFC444" />
-                                                <stop offset="1" style="stop-color:#F36F56" />
+                                                <stop style="stop-color:#FFC444" offset="0" />
+                                                <stop style="stop-color:#F36F56" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000125593704649175246280000009752325298084068538_);"
@@ -1730,8 +1755,8 @@
                                                     gradientUnits="userSpaceOnUse" x1="3014.6592" y1="1315.9515"
                                                     x2="2944.9192" y2="1493.0717"
                                                     gradientTransform="matrix(-0.9686 -0.2485 0.2485 -0.9686 3622.9033 4284.5967)">
-                                                    <stop offset="0" style="stop-color:#311944" />
-                                                    <stop offset="1" style="stop-color:#6B3976" />
+                                                    <stop style="stop-color:#311944" offset="0" />
+                                                    <stop style="stop-color:#6B3976" offset="1" />
                                                 </linearGradient>
                                                 <path
                                                     style="fill:url(#SVGID_00000137099824929697611730000012902876746741933485_);"
@@ -1745,8 +1770,8 @@
                                                     gradientUnits="userSpaceOnUse" x1="289.4034" y1="1529.8378"
                                                     x2="286.1934" y2="1271.4277"
                                                     gradientTransform="matrix(0.982 0.1888 0.1888 -0.982 547.8053 3600.0754)">
-                                                    <stop offset="0" style="stop-color:#FFC444" />
-                                                    <stop offset="1" style="stop-color:#F36F56" />
+                                                    <stop style="stop-color:#FFC444" offset="0" />
+                                                    <stop style="stop-color:#F36F56" offset="1" />
                                                 </linearGradient>
                                                 <path
                                                     style="fill:url(#SVGID_00000064325844041025116240000001941358417454186150_);"
@@ -1760,8 +1785,8 @@
                                                     gradientUnits="userSpaceOnUse" x1="2993.3528" y1="1307.473"
                                                     x2="2923.5527" y2="1484.7631"
                                                     gradientTransform="matrix(-0.9686 -0.2485 0.2485 -0.9686 3622.9033 4284.5967)">
-                                                    <stop offset="0" style="stop-color:#311944" />
-                                                    <stop offset="1" style="stop-color:#6B3976" />
+                                                    <stop style="stop-color:#311944" offset="0" />
+                                                    <stop style="stop-color:#6B3976" offset="1" />
                                                 </linearGradient>
                                                 <path
                                                     style="fill:url(#SVGID_00000054983263154866856670000004336243355116930188_);"
@@ -1775,8 +1800,8 @@
                                                     gradientUnits="userSpaceOnUse" x1="2925.0559" y1="1414.3234"
                                                     x2="2928.6858" y2="1381.9532"
                                                     gradientTransform="matrix(-0.9686 -0.2485 0.2485 -0.9686 3622.9033 4284.5967)">
-                                                    <stop offset="0" style="stop-color:#FFC444" />
-                                                    <stop offset="1" style="stop-color:#F36F56" />
+                                                    <stop style="stop-color:#FFC444" offset="0" />
+                                                    <stop style="stop-color:#F36F56" offset="1" />
                                                 </linearGradient>
                                                 <path
                                                     style="fill:url(#SVGID_00000116204635577971186180000001342947094245879950_);"
@@ -1794,8 +1819,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1137.8401" y1="2559.5913"
                                                 x2="2013.5801" y2="2559.5913"
                                                 gradientTransform="matrix(1 0 0 -1 918.71 3710)">
-                                                <stop offset="0" style="stop-color:#444B8C" />
-                                                <stop offset="1" style="stop-color:#26264F" />
+                                                <stop style="stop-color:#444B8C" offset="0" />
+                                                <stop style="stop-color:#26264F" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000183949534495082133040000006478711168309615251_);"
@@ -1808,8 +1833,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1838.7672" y1="3019.8914"
                                                 x2="1382.827" y2="2014.0012"
                                                 gradientTransform="matrix(1 0 0 -1 918.71 3710)">
-                                                <stop offset="0" style="stop-color:#AA80F9" />
-                                                <stop offset="1" style="stop-color:#6165D7" />
+                                                <stop style="stop-color:#AA80F9" offset="0" />
+                                                <stop style="stop-color:#6165D7" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000173142575511017145100000010927539427524942268_);"
@@ -1822,8 +1847,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1356.9049" y1="2129.127"
                                                 x2="1594.4548" y2="2506.407"
                                                 gradientTransform="matrix(1 0 0 -1 918.71 3710)">
-                                                <stop offset="0" style="stop-color:#AA80F9" />
-                                                <stop offset="1" style="stop-color:#6165D7" />
+                                                <stop style="stop-color:#AA80F9" offset="0" />
+                                                <stop style="stop-color:#6165D7" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000103267106374489521300000003039952879993726602_);"
@@ -1840,8 +1865,8 @@
                                                 gradientUnits="userSpaceOnUse" x1="1461.8707" y1="2684.5503"
                                                 x2="1816.0907" y2="1932.6204"
                                                 gradientTransform="matrix(1 0 0 -1 918.71 3710)">
-                                                <stop offset="0" style="stop-color:#AA80F9" />
-                                                <stop offset="1" style="stop-color:#6165D7" />
+                                                <stop style="stop-color:#AA80F9" offset="0" />
+                                                <stop style="stop-color:#6165D7" offset="1" />
                                             </linearGradient>
                                             <path
                                                 style="fill:url(#SVGID_00000059990639787557969300000003198919051544850827_);"
@@ -1850,7 +1875,7 @@
                             c62.1,48.5,117.6,110.5,127.2,184c15.6,119.8-104,174.9-117.2,305.1C2487.9,1324.7,2539.4,1444.3,2623.2,1533L2623.2,1533z" />
                                         </g>
                                         <g>
-                                            <path id="gearLtr" class="st0"
+                                            <path class="st0" id="gearLtr"
                                                 d="M2673.4,1236.4l-22-4.3c0.1-10.1-0.7-20.3-2.3-30.3l21.2-7.4c5.7-2,8.7-8.3,6.7-14.1l-12.5-36.4
                             c-2-5.8-8.3-8.9-14-6.9l-21.3,7.4c-4.9-8.8-10.6-17.3-17.1-25.3l14.8-17.3c4-4.7,3.4-11.7-1.2-15.8l-29-25.6
                             c-4.6-4.1-11.6-3.6-15.6,1l-14.8,17.4c-8.8-5.4-17.9-10-27.3-13.7l4.1-22.6c1.1-6.1-2.9-12.1-8.9-13.3l-37.9-7.7
@@ -1865,7 +1890,7 @@
                             c5.2-8.8,9.5-17.9,13-27.3l21.7,4.2c5.9,1.2,11.6-2.8,12.8-8.8l7-37.5C2683.2,1243.4,2679.3,1237.6,2673.4,1236.4
                             L2673.4,1236.4z M2562.8,1303.1c-39.9,46.8-110.4,52.1-157.6,11.6c-47.6-40.7-53.7-112.2-13.4-159.5s111.4-52,158.6-10.8
                             C2597.3,1185.4,2602.7,1256.3,2562.8,1303.1L2562.8,1303.1z" />
-                                            <path id="gearRtl" class="st0"
+                                            <path class="st0" id="gearRtl"
                                                 d="M2813.7,942.1l-12.2-2.4c-0.1-5.5-0.6-11-1.7-16.4l11.6-3.9c3.1-1.1,4.7-4.5,3.5-7.6l-7.4-19.7
                             c-1.2-3.2-4.7-4.9-7.9-3.8l-11.7,3.9c-2.8-4.8-6.1-9.4-9.8-13.7l7.9-9.3c2.1-2.5,1.7-6.3-0.9-8.5l-16.4-13.9
                             c-2.6-2.2-6.5-2-8.6,0.5l-7.9,9.3c-4.9-2.9-10-5.4-15.3-7.5l2-12.2c0.5-3.3-1.8-6.5-5.1-7.2l-21-4.3c-3.4-0.7-6.5,1.4-7.1,4.7
@@ -1896,18 +1921,18 @@
         <div class="custom-shape-divider-top-1694330345">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                 preserveAspectRatio="none">
-                <path
+                <path class="shape-fill"
                     d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                    opacity=".25" class="shape-fill"></path>
-                <path
+                    opacity=".25"></path>
+                <path class="shape-fill"
                     d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                    opacity=".5" class="shape-fill"></path>
-                <path
-                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                    class="shape-fill"></path>
+                    opacity=".5"></path>
+                <path class="shape-fill"
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z">
+                </path>
             </svg>
         </div>
-        <div class="container flex justify-between py-16">
+        <div class="container flex justify-around py-16">
             <!-- About Column -->
             <div class="flex-auto w-64 mr-2">
                 <h1 class="text-center font-bold text-[37px]">HELLO!</h1>
@@ -2034,52 +2059,52 @@
         <div class="custom-shape-divider-top-1694330585">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                 preserveAspectRatio="none">
-                <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" class="shape-fill">
+                <path class="shape-fill" d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z">
                 </path>
             </svg>
         </div>
-        <article class="container block py-16 bg-white" id="services">
-            <div class="title-section">
-                <h1 class="text-center text-[37px] font-bold">OUR SERVICES</h1>
-                <p class="text-center text-basic">Report to Maintenance Your Office Tools Self</p>
-            </div>
-            <div class="content flex justify-between items-start py-5">
-                <div class="card block border-none">
-                    <caption class="max-w-sm overflow-hidden w-64">
-                        <h1 class="text-center font-bold text-lg">Hardware Tools</h1>
-                    </caption>
-                    <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                        <img class="mx-auto w-full" src="images/hardware-repair.jpg" alt="we-repair-hardware">
-                    </figure>
-                    <p class="text-justify text-basic">We repair hardware tools your Office</p>
+            <article class="container block py-16 bg-white" id="services">
+                <div class="title-section">
+                    <h1 class="text-center text-[37px] font-bold">OUR SERVICES</h1>
+                    <p class="text-center text-basic">Report to Maintenance Your Office Tools Self</p>
                 </div>
-                <div class="card block border-none">
-                    <caption class="max-w-sm overflow-hidden w-64">
-                        <h1 class="text-center font-bold text-lg">Software Tools</h1>
-                    </caption>
-                    <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                        <img class="mx-auto w-full" src="images/software-repair.jpg" alt="we-repair-hardware">
-                    </figure>
-                    <p class="text-justify text-basic">We repair software tools your Office</p>
+                <div class="content flex justify-between items-start py-5">
+                    <div class="card block border-none">
+                        <caption class="max-w-sm overflow-hidden w-64">
+                            <h1 class="text-center font-bold text-lg">Hardware Tools</h1>
+                        </caption>
+                        <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
+                            <img class="mx-auto w-full" src="images/hardware-repair.jpg" alt="we-repair-hardware">
+                        </figure>
+                        <p class="text-justify text-basic">We repair hardware tools your Office</p>
+                    </div>
+                    <div class="card block border-none">
+                        <caption class="max-w-sm overflow-hidden w-64">
+                            <h1 class="text-center font-bold text-lg">Software Tools</h1>
+                        </caption>
+                        <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
+                            <img class="mx-auto w-full" src="images/software-repair.jpg" alt="we-repair-hardware">
+                        </figure>
+                        <p class="text-justify text-basic">We repair software tools your Office</p>
+                    </div>
+                    <div class="card block border-none">
+                        <caption class="max-w-sm overflow-hidden w-64">
+                            <h1 class="text-center font-bold text-lg">Network Tools</h1>
+                        </caption>
+                        <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
+                            <img class="mx-auto w-full" src="images/network-repair.jpg" alt="we-repair-hardware">
+                        </figure>
+                        <p class="text-justify text-basic">We repair network tools your Office</p>
+                    </div>
                 </div>
-                <div class="card block border-none">
-                    <caption class="max-w-sm overflow-hidden w-64">
-                        <h1 class="text-center font-bold text-lg">Network Tools</h1>
-                    </caption>
-                    <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                        <img class="mx-auto w-full" src="images/network-repair.jpg" alt="we-repair-hardware">
-                    </figure>
-                    <p class="text-justify text-basic">We repair network tools your Office</p>
-                </div>
-            </div>
-        </article>
+            </article>
     </section>
 
     <footer class="block bg-slate-800 text-[#ddd]">
         <div class="custom-shape-divider-top-1694332668">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                 preserveAspectRatio="none">
-                <path d="M649.97 0L550.03 0 599.91 54.12 649.97 0z" class="shape-fill"></path>
+                <path class="shape-fill" d="M649.97 0L550.03 0 599.91 54.12 649.97 0z"></path>
             </svg>
         </div>
         <div class="container w-full flex justify-between">
