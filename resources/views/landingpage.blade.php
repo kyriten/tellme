@@ -1111,13 +1111,13 @@
                 <!-- Description -->
                 <div class="txt-desc container flex items-center">
                     <div class="flex-1 block text-center">
-                        <h1 class="font-bold text-9xl" data-text="i">tellm</h1>
-                        <blockquote class="text-2xl italic tracking-wider">keep an eye on your
+                        <h1 class="font-bold text-8xl md:text-9xl" data-text="i">tellm</h1>
+                        <blockquote class="text-lg md:text-2xl italic tracking-wider">keep an eye on your
                             asset
                         </blockquote>
                     </div>
                     <!-- Image -->
-                    <svg class="flex-1 transform -scale-x-100" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="flex-1 lg:flex hidden transform -scale-x-100" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3710 3710" width="50%">
                         <style type="text/css">
                             .st0 {
@@ -1932,13 +1932,13 @@
                 </path>
             </svg>
         </div>
-        <div class="container flex justify-around py-16">
+        <div class="container md:flex md:justify-around py-16">
             <!-- About Column -->
-            <div class="flex-auto w-64 mr-2">
+            <div class="pb-4 md:flex-auto md:w-64 md:mr-2">
                 <h1 class="text-center font-bold text-[37px]">HELLO!</h1>
                 <h1 class="text-center font-bold text-[24px]">LET'S TALK ABOUT TELLMI</h1>
                 <figure>
-                    <div class="grid py-14">
+                    <div class="grid justify-items-center py-14">
                         <h1 class="text-center font-bold text-9xl" data-text="i">tellm</h1>
                         <blockquote class="text-[26px]/[24px] italic tracking-wider justify-self-center">keep an eye on
                             your
@@ -1953,7 +1953,7 @@
                 </figure>
             </div>
             <!-- Form Column -->
-            <div class="flex-auto w-32 ml-2">
+            <div class="py-4 md:flex-auto md:w-32 md:ml-2">
                 <aside>
                     <article>
                         <h1 class="text-center text-[22px]"> Please <strong class="text-[#991b1b]"> sign up </strong>
@@ -2063,41 +2063,41 @@
                 </path>
             </svg>
         </div>
-            <article class="container block py-16 bg-white" id="services">
-                <div class="title-section">
-                    <h1 class="text-center text-[37px] font-bold">OUR SERVICES</h1>
-                    <p class="text-center text-basic">Report to Maintenance Your Office Tools Self</p>
+        <article class="container grid justify-items-center py-16 bg-white" id="services">
+            <div class="title-section">
+                <h1 class="text-center text-[37px] font-bold">OUR SERVICES</h1>
+                <p class="text-center text-basic">Report to Maintenance Your Office Tools Self</p>
+            </div>
+            <div class="content md:flex md:justify-around items-start py-5">
+                <div class="card block my-4 border-none lg:m-10">
+                    <caption class="max-w-sm overflow-hidden w-64">
+                        <h1 class="text-center font-bold text-lg">Hardware Tools</h1>
+                    </caption>
+                    <figure class="bg-white my-2 md:my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
+                        <img class="mx-auto w-full" src="images/hardware-repair.jpg" alt="we-repair-hardware">
+                    </figure>
+                    <p class="text-justify text-basic">We repair hardware tools your Office</p>
                 </div>
-                <div class="content flex justify-between items-start py-5">
-                    <div class="card block border-none">
-                        <caption class="max-w-sm overflow-hidden w-64">
-                            <h1 class="text-center font-bold text-lg">Hardware Tools</h1>
-                        </caption>
-                        <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                            <img class="mx-auto w-full" src="images/hardware-repair.jpg" alt="we-repair-hardware">
-                        </figure>
-                        <p class="text-justify text-basic">We repair hardware tools your Office</p>
-                    </div>
-                    <div class="card block border-none">
-                        <caption class="max-w-sm overflow-hidden w-64">
-                            <h1 class="text-center font-bold text-lg">Software Tools</h1>
-                        </caption>
-                        <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                            <img class="mx-auto w-full" src="images/software-repair.jpg" alt="we-repair-hardware">
-                        </figure>
-                        <p class="text-justify text-basic">We repair software tools your Office</p>
-                    </div>
-                    <div class="card block border-none">
-                        <caption class="max-w-sm overflow-hidden w-64">
-                            <h1 class="text-center font-bold text-lg">Network Tools</h1>
-                        </caption>
-                        <figure class="bg-white my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                            <img class="mx-auto w-full" src="images/network-repair.jpg" alt="we-repair-hardware">
-                        </figure>
-                        <p class="text-justify text-basic">We repair network tools your Office</p>
-                    </div>
+                <div class="card block my-4 border-none lg:m-10">
+                    <caption class="max-w-sm overflow-hidden w-64">
+                        <h1 class="text-center font-bold text-lg">Software Tools</h1>
+                    </caption>
+                    <figure class="bg-white my-2 md:my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
+                        <img class="mx-auto w-full" src="images/software-repair.jpg" alt="we-repair-hardware">
+                    </figure>
+                    <p class="text-justify text-basic">We repair software tools your Office</p>
                 </div>
-            </article>
+                <div class="card block my-4 border-none lg:m-10">
+                    <caption class="max-w-sm overflow-hidden w-64">
+                        <h1 class="text-center font-bold text-lg">Network Tools</h1>
+                    </caption>
+                    <figure class="bg-white my-2 md:my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
+                        <img class="mx-auto w-full" src="images/network-repair.jpg" alt="we-repair-hardware">
+                    </figure>
+                    <p class="text-justify text-basic">We repair network tools your Office</p>
+                </div>
+            </div>
+        </article>
     </section>
 
     <footer class="block bg-slate-800 text-[#ddd]">
