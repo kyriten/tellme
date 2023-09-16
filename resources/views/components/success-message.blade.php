@@ -9,7 +9,8 @@
                         clip-rule="evenodd" />
                 </svg>
                 <div class="text-gray-800 dark:text-gray-100 ml-3">
-                    {{ session('message') }} {{ __('you are logged in!') }}
+                    {{ session('message') }} <strong class="text-red-500">{{ Auth::user()->name }}</strong>
+                    {{ __('you are logged in!') }}
                 </div>
             </div>
         </div>

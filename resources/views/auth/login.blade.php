@@ -5,30 +5,39 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
+        <!-- Register Direct -->
+        <div class="block mb-4 text-center text-sm">
+            Not have an Account yet?
+            <a class="text-red-600 dark:text-gray-400 hover:text-red-900 dark:hover:text-red-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-red-800"
+                href="{{ route('login') }}">
+                {{ __('Register Here') }}
+            </a>
+        </div>
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+            <x-text-input class="block mt-1 w-full" id="email" name="email" type="email" :value="old('email')" required
                 autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-error class="mt-2" :messages="$errors->get('email')" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+            <x-text-input class="block mt-1 w-full" id="password" name="password" type="password" required
                 autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input-error class="mt-2" :messages="$errors->get('password')" />
         </div>
 
         <!-- Remember Me -->
         <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox"
-                    class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
-                    name="remember">
+            <label class="inline-flex items-center" for="remember_me">
+                <input
+                    class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-red-600 shadow-sm focus:ring-red-500 dark:focus:ring-red-600 dark:focus:ring-offset-red-800"
+                    id="remember_me" name="remember" type="checkbox">
                 <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
             </label>
         </div>
