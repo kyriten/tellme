@@ -1253,8 +1253,7 @@
                         <x-application-logo-tagline-small></x-application-logo-tagline-small>
                         <div class="sub-section flex items-center">
                             <h1 class="ps-5 text-justify text-[12px]">tellmi App has been made by Division IT to
-                                Improve
-                                Operational Productivity at Setiajaya Toyota
+                                Improve Operational Productivity at Setiajaya Toyota
                             </h1>
                         </div>
                     </div>
