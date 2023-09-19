@@ -1066,14 +1066,7 @@
                     <h1 class="text-center font-bold text-[37px]">HELLO!</h1>
                     <h1 class="text-center font-bold text-[24px]">LET'S TALK ABOUT TELLMI</h1>
                     <figure>
-                        <div class="grid justify-items-center py-14">
-                            <h1 class="text-center font-bold text-9xl" data-text="i">tellm</h1>
-                            <blockquote class="text-[26px]/[24px] italic tracking-wider justify-self-center">keep an
-                                eye on
-                                your
-                                asset
-                            </blockquote>
-                        </div>
+                        <x-application-logo-tagline-base></x-application-logo-tagline-base>
                         <figcaption class="text-justify">Tellmi is an application made to help any worker at Setiajaya
                             Toyota for maintenance their hardware or software or networks integrated for branch of
                             Setiajaya
@@ -1207,18 +1200,19 @@
             <!-- Curve Asymmetrical Divider -->
             <x-divider-curve-asymmetrical></x-divider-curve-asymmetrical>
 
-            <article class="container grid justify-items-center py-16 bg-white" id="services">
+            <article class="container block mx-auto py-16 bg-white" id="services">
                 <div class="title-section">
                     <h1 class="text-center text-[37px] font-bold">OUR SERVICES</h1>
                     <p class="text-center text-basic">Report to Maintenance Your Office Tools Self</p>
                 </div>
-                <div class="content md:flex md:justify-around items-start py-5">
+                <div class="content flex flex-col items-center lg:flex-row lg:justify-center py-3">
                     <div class="card block my-4 border-none lg:m-10">
                         <caption class="max-w-sm overflow-hidden w-64">
                             <h1 class="text-center font-bold text-lg">Hardware Tools</h1>
                         </caption>
                         <figure class="bg-white my-2 md:my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                            <img class="mx-auto w-full" src="images/hardware-repair.jpg" alt="we-repair-hardware">
+                            <img class="lg:mx-auto lg:w-full" src="images/hardware-repair.jpg"
+                                alt="we-repair-hardware">
                         </figure>
                         <p class="text-justify text-basic">We repair hardware tools your Office</p>
                     </div>
@@ -1227,7 +1221,8 @@
                             <h1 class="text-center font-bold text-lg">Software Tools</h1>
                         </caption>
                         <figure class="bg-white my-2 md:my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                            <img class="mx-auto w-full" src="images/software-repair.jpg" alt="we-repair-hardware">
+                            <img class="lg:mx-auto lg:w-full" src="images/software-repair.jpg"
+                                alt="we-repair-hardware">
                         </figure>
                         <p class="text-justify text-basic">We repair software tools your Office</p>
                     </div>
@@ -1236,7 +1231,8 @@
                             <h1 class="text-center font-bold text-lg">Network Tools</h1>
                         </caption>
                         <figure class="bg-white my-2 md:my-3 rounded-xl shadow-lg max-w-sm overflow-hidden w-64">
-                            <img class="mx-auto w-full" src="images/network-repair.jpg" alt="we-repair-hardware">
+                            <img class="lg:mx-auto lg:w-full" src="images/network-repair.jpg"
+                                alt="we-repair-hardware">
                         </figure>
                         <p class="text-justify text-basic">We repair network tools your Office</p>
                     </div>
@@ -1250,43 +1246,23 @@
         <!-- Arrow Divider -->
         <x-divider-arrow></x-divider-arrow>
 
-        <div class="container w-full flex justify-between">
-            <div class="block w-80 items-center pb-24x">
-                <div class="flex">
-                    <div class="grid mb-2">
-                        <h1 class="text-start font-bold text-5xl" data-text="i">tellm</h1>
-                        <blockquote class="text-[10px] italic tracking-wider justify-self-start">keep an eye on your
-                            asset
-                        </blockquote>
+        <div class="container">
+            <div class="flex justify-center">
+                <div class="block w-80 items-center pb-4">
+                    <div class="flex">
+                        <x-application-logo-tagline-small></x-application-logo-tagline-small>
+                        <div class="sub-section flex items-center">
+                            <h1 class="ps-5 text-justify text-[12px]">tellmi App has been made by Division IT to
+                                Improve
+                                Operational Productivity at Setiajaya Toyota
+                            </h1>
+                        </div>
                     </div>
-                    <div class="sub-section flex items-center">
-                        <h1 class="ps-5 text-justify text-[12px]">tellmi App has been made by Division IT to Improve
-                            Operational Productivity at Setiajaya Toyota
-                        </h1>
+                    <div class="relative flex pt-2 pb-2 items-center">
+                        <x-horizontal-line></x-horizontal-line>
                     </div>
+                    <p class="text-xs text-center md:text-left">&copy; 2023, tellmi @ Setiajaya Toyota</p>
                 </div>
-                <div class="relative flex pt-4 pb-2 items-center">
-                    <div class="flex-grow border-t border-gray-400"></div>
-                    <div class="flex-grow border-t border-gray-400"></div>
-                </div>
-                <span class="text-xs">&copy; 2023, tellmi @ Setiajaya Toyota</span>
-            </div>
-            <div class="flex-1 w-64 text-center pb-5">
-                <h1 class="font-bold text-[20px] pb-3">Group 1</h1>
-                <ul class="list-none">
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                    <li><a href="#">Link 4</a></li>
-                </ul>
-            </div>
-            <div class="flex-1 w-32 text-center pb-5">
-                <h1 class="font-bold text-[20px]] pb-3">Group 2</h1>
-                <ul class="list-none ">
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                </ul>
             </div>
         </div>
     </footer>
