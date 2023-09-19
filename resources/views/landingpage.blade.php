@@ -843,7 +843,7 @@
     </style>
 
     <!-- Custom Styles -->
-    <link href="build/assets/divider.css" rel="stylesheet">
+    <link href="assets/css/divider.css" rel="stylesheet">
 
     <!-- CDN Script: Split Type 0.3.3 from Typescript-->
     <script src="https://unpkg.com/split-type"></script>
@@ -1039,14 +1039,14 @@
         <section id="txt-desc">
             <div class="container">
                 <!-- Heading Section-->
-                <div class="flex items-center h-screen justify-around">
+                <div class="flex items-center h-screen justify-around relative">
                     <!-- Welcome Animation -->
                     <x-welcome-animation></x-welcome-animation>
                     <!-- Description -->
                     <div class="txt-desc container flex md:justify-between items-center md:px-0">
-                        <x-application-logo-tagline class="flex-1"></x-application-logo-tagline>
+                        <x-application-logo-tagline class="lg:flex-1"></x-application-logo-tagline>
                         <!-- Image -->
-                        <x-computer-troubleshoot class="flex-1 lg:flex hidden"></x-computer-troubleshoot>
+                        <x-computer-troubleshoot class="hidden "></x-computer-troubleshoot>
                     </div>
                 </div>
             </div>
@@ -1290,102 +1290,11 @@
     </footer>
 
     <!-- Vanilla Script: Humberger -->
-    <script>
-        // Burger menus
-        document.addEventListener('DOMContentLoaded', function() {
-            // open
-            const burger = document.querySelectorAll('.navbar-burger');
-            const menu = document.querySelectorAll('.navbar-menu');
-
-            if (burger.length && menu.length) {
-                for (var i = 0; i < burger.length; i++) {
-                    burger[i].addEventListener('click', function() {
-                        for (var j = 0; j < menu.length; j++) {
-                            menu[j].classList.toggle('hidden');
-                        }
-                    });
-                }
-            }
-
-            // close
-            const close = document.querySelectorAll('.navbar-close');
-            const backdrop = document.querySelectorAll('.navbar-backdrop');
-
-            if (close.length) {
-                for (var i = 0; i < close.length; i++) {
-                    close[i].addEventListener('click', function() {
-                        for (var j = 0; j < menu.length; j++) {
-                            menu[j].classList.toggle('hidden');
-                        }
-                    });
-                }
-            }
-
-            if (backdrop.length) {
-                for (var i = 0; i < backdrop.length; i++) {
-                    backdrop[i].addEventListener('click', function() {
-                        for (var j = 0; j < menu.length; j++) {
-                            menu[j].classList.toggle('hidden');
-                        }
-                    });
-                }
-            }
-        });
-    </script>
+    <script src="assets/js/humberger.js"></script>
 
     <!-- Vanilla Script: Split Type Welcome Letter using GSAP library -->
-    <script>
-        let txtWelcome = new SplitType('#txt-welcome')
-        let charWelcome = document.querySelectorAll('.char')
+    <script src="assets/js/gsap-welcome.js"></script>
 
-        for (i = 0; i < charWelcome.length; i++) {
-            charWelcome[i].classList.add('translate-y-full')
-        }
-
-        gsap.to('.char', {
-            y: 0,
-            stagger: 0.05,
-            delay: 0.02,
-            duration: 0.5,
-        })
-        gsap.to('.char', {
-            opacity: 0,
-            stagger: -0.05,
-        }, '+=4')
-
-        let txtTo = new SplitType('#txt-to')
-        let charTo = document.querySelectorAll('.char')
-        for (j = 0; j < charTo.length; j++) {
-            charTo[j].classList.add('translate-y-full')
-        }
-
-        gsap.to('.char', {
-            y: 0,
-            stagger: -0.05,
-            delay: 0.02,
-            duration: 0.5,
-        })
-        gsap.to('.char', {
-            opacity: 0,
-            stagger: 0.05,
-        }, '-=2')
-
-        //Desc
-        let tl = gsap.timeline({
-            defaults: {
-                ease: "none"
-            }
-        })
-
-        tl.from(".txt-desc", {
-            duration: 1,
-            opacity: 0
-        }, 3)
-        tl.to(".txt-heading", {
-            duration: 1,
-            opacity: 0
-        }, 2)
-    </script>
 </body>
 
 </html>
