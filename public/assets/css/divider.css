@@ -1,0 +1,55 @@
+.waves-divider {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.waves-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 96px;
+    transform: rotateY(180deg);
+}
+.waves-divider .shape-fill {
+    fill: #ffffff;
+}
+
+.curve-divider-asymmetrical {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.curve-divider-asymmetrical svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 118px;
+    transform: rotateY(180deg);
+}
+.curve-divider-asymmetrical .shape-fill {
+    fill: #cbd5e1;
+}
+
+.arrow-divider {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.arrow-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+.arrow-divider .shape-fill {
+    fill: #ffffff;
+}
