@@ -1039,14 +1039,16 @@
         <section id="txt-desc">
             <div class="container">
                 <!-- Heading Section-->
-                <div class="flex items-center h-screen justify-around relative">
+                <div class="flex items-center h-screen justify-around">
                     <!-- Welcome Animation -->
                     <x-welcome-animation></x-welcome-animation>
                     <!-- Description -->
-                    <div class="txt-desc container flex md:justify-between items-center md:px-0">
+                    <div class="txt-desc container flex justify-center lg:justify-between items-center md:px-0">
                         <x-application-logo-tagline class="lg:flex-1"></x-application-logo-tagline>
                         <!-- Image -->
-                        <x-computer-troubleshoot class="hidden "></x-computer-troubleshoot>
+                        <div class="hidden flex-auto lg:flex justify-end">
+                            <x-computer-troubleshoot></x-computer-troubleshoot>
+                        </div>
                     </div>
                 </div>
             </div>
