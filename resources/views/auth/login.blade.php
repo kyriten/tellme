@@ -9,7 +9,7 @@
         <div class="block mb-4 text-center text-sm">
             Not have an Account yet?
             <a class="text-red-600 dark:text-gray-400 hover:text-red-900 dark:hover:text-red-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-red-800"
-                href="{{ route('login') }}">
+                href="{{ route('register') }}">
                 {{ __('Register Here') }}
             </a>
         </div>
