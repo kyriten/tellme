@@ -1037,13 +1037,13 @@
     <main>
         <!-- Welcome Section -->
         <section id="txt-desc">
-            <div class="container">
+            <div class="container bg-dots-darker">
                 <!-- Heading Section-->
                 <div class="flex items-center h-screen justify-around">
                     <!-- Welcome Animation -->
                     <x-welcome-animation></x-welcome-animation>
                     <!-- Description -->
-                    <div class="txt-desc container flex justify-center lg:justify-between items-center md:px-0">
+                    <div class="txt-desc container  flex justify-center lg:justify-between items-center md:px-0">
                         <x-application-logo-tagline class="lg:flex-1"></x-application-logo-tagline>
                         <!-- Image -->
                         <div class="hidden flex-auto lg:flex justify-end">
@@ -1059,10 +1059,10 @@
             <!-- Waves Opacity Divider -->
             <x-divider-waves-opacity></x-divider-waves-opacity>
 
-            <!-- About and Form Area -->
+            <!-- About and How to Use Area -->
             <div class="container md:flex md:justify-around py-16">
                 <!-- About Column -->
-                <div class="pb-4 md:flex-auto md:w-64 md:mr-2">
+                <div class="pb-4 md:pr-4 md:flex-auto md:w-64 md:mr-2">
                     <h1 class="text-center font-bold text-[37px]">HELLO!</h1>
                     <h1 class="text-center font-bold text-[24px]">LET'S TALK ABOUT TELLMI</h1>
                     <figure>
@@ -1076,13 +1076,15 @@
                             Technology (IT), Setiajaya Toyota.</figcaption>
                     </figure>
                 </div>
-                <!-- Form Column -->
-                <div class="py-4 md:flex-auto md:w-32 md:ml-2">
+                <!-- How to Use Column -->
+                <div class="py-4 md:pl-4 md:flex-auto md:w-32 md:ml-2">
                     <aside>
 
                         <!-- Just Heading Area -->
                         <article>
-                            <h1 class="text-center text-[22px]"> Please <strong class="text-[#991b1b]"> sign up
+                            <h1 class="text-center text-[22px]"> Please sign
+                                up<strong class="text-[#991b1b] hover:text-red-600"> <a
+                                        href="{{ route('register') }}">here</a>
                                 </strong>
                                 before using this app
                             </h1>
@@ -1097,98 +1099,25 @@
                             <div class="flex-grow border-t-2 border-gray-400"></div>
                         </div>
 
-                        <!-- Form Area -->
-                        <div class="flex justify-center mt-8">
-                            <form class="w-full max-w-lg" method="POST" action="{{ route('register') }}">
-                                @csrf
-
-                                <!-- Name Area -->
-                                <div class="flex flex-wrap -mx-3 mb-6">
-                                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-input-label for="email" :value="__('Email')" />
-                                        <x-text-input class="block mt-1 w-full" id="email" name="email"
-                                            type="email" :value="old('email')" required autocomplete="username"
-                                            placeholder="example@mail.com" />
-                                        <x-input-error class="mt-2" :messages="$errors->get('email')" />
-                                    </div>
-                                    <div class="w-full md:w-1/2 px-3">
-                                        <x-input-label for="name" :value="__('Name')" />
-                                        <x-text-input class="block mt-1 w-full" id="name" name="name"
-                                            type="text" :value="old('name')" required autocomplete="name"
-                                            placeholder="Abimanyu Okysaputra" />
-                                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
-                                    </div>
-                                </div>
-
-                                <!-- Password Area -->
-                                <div class="flex flex-wrap -mx-3 mb-6">
-
-                                    <!-- Password -->
-                                    <div class="w-full md:w-1/2 px-3">
-                                        <x-input-label for="password" :value="__('Password')" />
-
-                                        <x-text-input class="block mt-1 w-full" id="password" name="password"
-                                            type="password" required autocomplete="new-password"
-                                            placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" />
-
-                                        <x-input-error class="mt-2" :messages="$errors->get('password')" />
-                                        <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd
-                                            like
-                                        </p>
-                                    </div>
-
-                                    <!-- Confirm Password -->
-                                    <div class="w-full md:w-1/2 px-3">
-                                        <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                                        <x-text-input class="block mt-1 w-full" id="password_confirmation"
-                                            name="password_confirmation" type="password" required
-                                            autocomplete="new-password"
-                                            placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" />
-
-                                        <x-input-error class="mt-2" :messages="$errors->get('password_confirmation')" />
-                                    </div>
-                                </div>
-
-                                <!-- Employee Area -->
-                                <div class="flex flex-wrap -mx-3 mb-2">
-
-                                    <!-- Position Area -->
-                                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-input-label for="position" :value="__('Position')" />
-                                        <x-text-input class="block mt-1 w-full" id="position" name="position"
-                                            type="text" :value="old('position')" required autocomplete="position"
-                                            placeholder="Programmer" />
-                                        <x-input-error class="mt-2" :messages="$errors->get('Position')" />
-                                    </div>
-
-                                    <!-- Branch Area -->
-                                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-input-label for="email" :value="__('Branch')" />
-
-                                        <div class="relative">
-                                            <x-select class="block mt-1 w-full" id="select" name="field">
-                                                <option value="" selected disabled hidden>
-                                                    {{ __('Select Branch') }}</option>
-
-                                                <option value="1">Bogor</option>
-                                                <option value="2">Depok</option>
-                                                <option value="3">Cibubur</option>
-                                                <option value="4">Cimanggis</option>
-                                                <option value="5">Parung</option>
-                                                <option value="6">Pamulang</option>
-                                            </x-select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Button Area -->
-                                <div class="flex items-center justify-end mt-4">
-                                    <x-secondary-button>
-                                        {{ 'Sign Up' }}
-                                    </x-secondary-button>
-                                </div>
-                            </form>
+                        <!-- How to Use Area -->
+                        <div class="flex justify-between pt-2">
+                            <div class="block">
+                                <h1 class="font-bold text-left text-lg">
+                                    How To Use:
+                                </h1>
+                                <ol class="list-decimal text-left pl-4">
+                                    <li>Enter the app using your account</li>
+                                    <li>Sign in or sign up using your email if you do not have an account</li>
+                                    <li>Please ensure that your personal information is complete</li>
+                                    <li>Write down your complaint by answering the provided questions</li>
+                                    <li>Your complaint will be forwarded to our IT team</li>
+                                    <li>Then, our team will pick up your ticket to assist in resolving your complaint
+                                    </li>
+                                    <li>You can monitor the progress of your complaint ticket on your dashboard</li>
+                                    <li>Don't forget to provide feedback on our service. Any suggestions, criticisms,
+                                        and ratings from you will influence our performance evaluation</li>
+                                </ol>
+                            </div>
                         </div>
                     </aside>
                 </div>
