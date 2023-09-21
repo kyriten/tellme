@@ -35,13 +35,15 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'position' => ['required', 'string', 'max:50'],
-            'branch' => ['required|in:Bogor, Depok, Cibubur, Cimanggis, Parung, Pamulang'],
+            'branch' => ['required|in:Bogor,Depok,Cibubur,Cimanggis,Parung,Pamulang'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'position' => $request->position,
+            'branch' => $request->input('branch'),
         ]);
 
         event(new Registered($user));
