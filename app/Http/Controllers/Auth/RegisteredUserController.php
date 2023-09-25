@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Branch;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -20,7 +21,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $branches = Branch::all();
+        return view('auth.register', compact('branches'));
     }
 
     /**
@@ -34,17 +36,17 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'position' => ['required', 'string', 'max:50'],
-            'branch' => ['required|in:Bogor,Depok,Cibubur,Cimanggis,Parung,Pamulang'],
+            // 'position' => ['required', 'string', 'max:50'],
+            // 'branch_id' => ['required'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'position' => $request->position,
-            'branch' => $request->input('branch'),
-        ]);
+            // 'position' => $request->position,
+            // 'branch_id' => $request->input('id'),
+        ])->assignRole('user');
 
         event(new Registered($user));
 

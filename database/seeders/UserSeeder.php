@@ -14,11 +14,11 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'abimanyu okysaputra',
-            'email' => 'abimanyu@setiajaya.toyota.id',
-            'email_verified_at' => now(),
-            'password' => Hash::make('12345678'),
-        ])->assignRole('employee');
+        // User::create([
+        //     'name' => 'abimanyu okysaputra',
+        //     'email' => 'abimanyu@setiajaya.toyota.id',
+        //     'email_verified_at' => now(),
+        //     'password' => Hash::make('12345678'),
+        // ])->assignRole('employee');
     }
 }
