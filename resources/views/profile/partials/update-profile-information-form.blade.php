@@ -55,7 +55,7 @@
 
         <!-- Job Title -->
         <div>
-            <x-input-label for="position" :value="__('position')" />
+            <x-input-label for="position" :value="__('Position')" />
             <x-text-input class="mt-1 block w-full" id="position" name="position" type="text" :value="old('position', $user->position)"
                 required autofocus autocomplete="position" />
             <x-input-error class="mt-2" :messages="$errors->get('position')" />
@@ -63,10 +63,10 @@
 
         <!-- Branch -->
         <div>
-            <x-input-label for="branch" :value="__('branch')" />
+            <x-input-label for="branch" :value="__('Branch')" />
             <div class="relative">
-                <x-select class="block mt-1 w-full" id="branch" name="branch">
-                    <option value="old('branch', $user - > branch)" selected disabled hidden></option>
+                <x-select class="block mt-1 w-full" id="branch" name="id">
+                    <option value="@selected(old('branch'))" selected disabled hidden></option>
 
                     <option value="Bogor">Bogor</option>
                     <option value="Depok">Depok</option>
@@ -78,7 +78,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('branch')" />
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 mt-4">
                 <x-primary-button>{{ __('Save') }}</x-primary-button>
 
                 @if (session('status') === 'profile-updated')

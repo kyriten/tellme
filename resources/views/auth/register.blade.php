@@ -41,33 +41,30 @@
                 <x-input-error class="mt-2" :messages="$errors->get('password_confirmation')" />
             </div>
 
-            <!-- Job Title -->
+            {{-- <!-- Job Title -->
             <div class="mt-4 md:w-1/2">
                 <x-input-label for="position" :value="__('Position')" />
                 <x-text-input class="block mt-1 w-full" id="position" name="position" type="text" :value="old('position')"
                     required autocomplete="position" placeholder="Programmer" />
                 <x-input-error class="mt-2" :messages="$errors->get('Position')" />
-            </div>
+            </div> --}}
 
-            <!-- Branch -->
+            {{-- <!-- Branch -->
             <div class="mt-4 md:w-1/2 md:pl-3">
                 <x-input-label for="branch" :value="__('Branch')" />
 
                 <div class="relative">
-                    <x-select class="appearence-none block mt-1 w-full" id="branch" name="branch">
+                    <x-select class="appearence-none block mt-1 w-full" id="branch" name="id">
                         <option value="" selected disabled hidden>
                             {{ __('Select Branch') }}</option>
+                        @foreach ($branches as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach
 
-                        <option value="Bogor">Bogor</option>
-                        <option value="Depok">Depok</option>
-                        <option value="Cibubur">Cibubur</option>
-                        <option value="Cimanggis">Cimanggis</option>
-                        <option value="Parung">Parung</option>
-                        <option value="Pamulang">Pamulang</option>
                     </x-select>
                 </div>
                 <x-input-error class="mt-2" :messages="$errors->get('branch')" />
-            </div>
+            </div> --}}
         </div>
 
         <div class="flex items-center justify-end mt-4">
