@@ -37,17 +37,33 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(): void
+    public function authenticate()
     {
+
+        if (Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+            $user = Auth::user();
+
+            // Periksa peran pengguna
+            if ($user->role === 'admin') {
+                // Redirect ke rute admin jika pengguna adalah admin
+                return redirect()->route('admin.index');
+            } elseif ($user->role === 'user' && $user->role === 'employee') {
+                // Redirect ke rute user jika pengguna adalah user
+                return redirect()->route('dashboard');
+            }
+        }
+
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
         }
+
+
 
         RateLimiter::clear($this->throttleKey());
     }
@@ -59,7 +75,7 @@ class LoginRequest extends FormRequest
      */
     public function ensureIsNotRateLimited(): void
     {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
         }
 
@@ -80,6 +96,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->input('email')) . '|' . $this->ip());
     }
 }

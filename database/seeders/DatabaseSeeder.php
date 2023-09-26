@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(EmployeeSeeder::class);
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 568076c9b5594c148d8a7964998eb9b00810daa0
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
