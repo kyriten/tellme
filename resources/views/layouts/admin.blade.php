@@ -17,16 +17,33 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Another CSS -->
+    <link href="/dist/tailwind.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet" />
 </head>
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.admin-navigation')
+        @include('layouts.admin-topnav')
+        @include('layouts.admin-sidenav')
 
         <!-- Page Content -->
         <main>
             {{ $slot }}
         </main>
+
+        <script type="text/javascript">
+            function dropdown() {
+                document.querySelector("#submenu").classList.toggle("hidden");
+                document.querySelector("#arrow").classList.toggle("rotate-0");
+            }
+            dropdown();
+
+            function openSidebar() {
+                document.querySelector(".sidebar").classList.toggle("hidden");
+            }
+        </script>
     </div>
 </body>
 
