@@ -38,7 +38,7 @@
         <script type="text/javascript">
             function dropdown() {
                 document.querySelector("#submenu").classList.toggle("hidden");
-                document.querySelector("#arrow").classList.toggle("rotate-0");
+                document.querySelector("#arrow").classList.toggle("rotate-180");
             }
             dropdown();
 
