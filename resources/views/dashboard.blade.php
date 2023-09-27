@@ -1,6 +1,7 @@
 @role('admin')
     <x-admin-layout>
-        <x-success-message />
+        <!-- Page Content -->
+        @include('admin.index')
     </x-admin-layout>
 @endrole
 

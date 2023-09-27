@@ -1,59 +1,48 @@
-<nav x-data="{ open: false }">
-    <!-- Side Navigation Menu -->
-    <span class="absolute text-white text-4xl top-5 left-4 mt-16 cursor-pointer" onclick="openSidebar()">
-        <i class="bi bi-filter-left px-2 bg-[#991b1b] rounded-md"></i>
-    </span>
-    <div class="sidebar fixed top-0 bottom-0 mt-16 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-[#991b1b]">
-        <div class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-red-300 text-gray-800">
-            <i class="bi bi-search text-sm"></i>
-            <input class="text-[15px] ml-4 w-full rounded-lg bg-transparent border-[#991b1b] focus:outline-none"
-                type="text" placeholder="Search" />
-        </div>
-        <div
-            class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-300 hover:text-gray-800 text-white">
-            <i class="bi bi-house-door-fill"></i>
-            <span class="text-[15px] ml-4 font-bold">Home</span>
-        </div>
-        <div
-            class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-300 hover:text-gray-800 text-white">
-            <i class="bi bi-bookmark-fill"></i>
-            <span class="text-[15px] ml-4 font-bold">Bookmark</span>
-        </div>
-        <div class="my-4 bg-gray-600 h-[1px]"></div>
-        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-300 hover:text-gray-800 text-white"
-            onclick="dropdown()">
-            <i class="bi bi-chat-left-text-fill"></i>
-            <div class="flex justify-between w-full items-center">
-                <span class="text-[15px] ml-4 font-bold">Chatbox</span>
-                <span class="text-sm rotate-0" id="arrow">
-                    <i class="bi bi-chevron-down"></i>
-                </span>
-            </div>
-        </div>
-        <div class="text-left text-sm mt-2 w-4/5 mx-auto text-white font-bold" id="submenu">
-            <h1 class="cursor-pointer p-2 hover:bg-red-300 hover:text-gray-800 rounded-md mt-1">
-                Social
-            </h1>
-            <h1 class="cursor-pointer p-2 hover:bg-red-300 hover:text-gray-800 rounded-md mt-1">
-                Personal
-            </h1>
-            <h1 class="cursor-pointer p-2 hover:bg-red-300 hover:text-gray-800 rounded-md mt-1">
-                Friends
-            </h1>
-        </div>
-        <div
-            class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-300 hover:text-gray-800 text-white">
-            <i class="bi bi-box-arrow-in-right"></i>
-            <!-- Authentication -->
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
+<!-- Side Navigation Menu -->
+<nav class="p-2 bg-slate-300 w-60 flex-col hidden md:flex" id="sideNav">
+    <ul>
+        <li>
+            <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-red-400 hover:to-red-300 hover:text-white"
+                href="{{ route('dashboard') }}">
+                <i class="fas fa-home mr-2"></i> {{ __('Dashboard') }}
+            </a>
+        </li>
+        <li>
+            <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-red-400 hover:to-red-300 hover:text-white"
+                href="{{ route('admin.masterdata') }}">
+                <i class="fas fa-file-alt  mr-2"></i> {{ __('Manage Complaint') }}
+            </a>
+        </li>
+        <li>
+            <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-red-400 hover:to-red-300 hover:text-white"
+                href="#">
+                <i class="fas fa-users "></i> {{ __('Manage User') }}
+            </a>
+        </li>
+        <li>
+            <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-red-400 hover:to-red-300 hover:text-white"
+                href="#">
+                <i class="fas fa-store "></i> {{ __('Manage Permission') }}
+            </a>
+        </li>
+        <li>
+            <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-red-400 hover:to-red-300 hover:text-white"
+                href="#">
+                <i class="fas fa-exchange-alt "></i> {{ __('Settings') }}
+            </a>
+        </li>
+    </ul>
 
-                <a class="text-[15px] ml-4 font-bold" :href="route('logout')"
-                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                    {{ __('Logout') }}
-                </a>
-            </form>
-        </div>
-    </div>
+    <!-- Logout -->
+    <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-red-400 hover:to-red-300 hover:text-white mt-auto"
+        href="#">
+        <i class="fas fa-sign-out-alt "></i>Logout
+    </a>
+
+    <!-- Señalador de ubicación -->
+    <div class="bg-gradient-to-r from-red-300 to-red-500 h-px mt-2"></div>
+
+    <!-- Copyright al final de la navegación lateral -->
+    <p class="mb-1 px-5 py-3 text-left text-xs text-red-500">@2023, Build with ♥ by Kyriten</p>
+
 </nav>
