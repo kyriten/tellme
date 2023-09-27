@@ -23,9 +23,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-})->middleware(['auth', 'role:admin'])->name('admin.index');
+// Route::get('/dashboard', function () {
+//     return view('admin.index');
+// })->middleware(['auth', 'role:admin'])->name('admin.index');
+
+Route::get('/dashboard/permission', function () {
+    return view('admin.masterdata');
+})->middleware(['auth', 'role:admin'])->name('admin.masterdata');
 
 // Breeze Default
 // Route::get('/dashboard', function () {
