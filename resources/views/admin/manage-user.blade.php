@@ -9,12 +9,6 @@
                 <h2 class="font-semibold text-xl flex-1 text-gray-800 dark:text-gray-200 leading-tight">
                     {{ __('Manage User') }}
                 </h2>
-
-                <div class="flex items-center">
-                    <button
-                        class="focus:outline-none text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-4 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-                        type="button">Create</button>
-                </div>
             </div>
         </header>
 
