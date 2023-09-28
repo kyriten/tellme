@@ -17,7 +17,7 @@
                 <i class="fas fa-search text-gray-400"></i>
             </div>
             <input
-                class="w-full h-10 pl-10 pr-4 py-1 text-base placeholder-gray-500 border rounded-full focus:border-[#991b1b] dark:focus:border-[#991b1b] focus:ring-[#991b1b] dark:focus:ring-[#991b1b]"
+                class="w-full h-10 pl-10 pr-4 py-1 text-base placeholder-gray-500 border-gray-500 rounded-full focus:border-red-500 dark:focus:border-red-500 focus:ring-red-500 dark:focus:ring-red-500"
                 type="search" placeholder="Cari disini....">
         </div>
 

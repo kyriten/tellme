@@ -17,14 +17,5 @@
                 </div>
             </div>
         </header>
-
-        <!-- Content -->
-        <main class="bg-white dark:bg-gray-800 shadow mr-4 mb-4 px-4 py-4 min-h-screen items-center block rounded-md">
-
-            <!-- Records -->
-            <div class="bg-white min-h-screen rounded-lg flex flex-col justify-center items-center mt-6">
-                <h2>No Records Found</h2>
-            </div>
-        </main>
     </div>
 </x-admin-layout>
