@@ -2,7 +2,7 @@
     <x-success-message />
 
     <!-- Header -->
-    <header class="bg-white dark:bg-gray-800 shadow mb-4 ">
+    <header>
         <div class="max-w-7xl py-4 px-4 sm:px-6 lg:px-8 block md:flex md:justify-around items-center">
 
             <!-- Header Title -->
@@ -12,8 +12,8 @@
         </div>
     </header>
 
-    <!-- Contenedor de las 4 secciones (disminuido para dispositivos pequeños) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 p-2">
+    <!-- Dashboard -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 p-2 bg-white dark:bg-gray-800 shadow mb-4 min-h-screen">
 
         <!-- Left Section -->
         <div class="bg-white p-4 rounded-md">

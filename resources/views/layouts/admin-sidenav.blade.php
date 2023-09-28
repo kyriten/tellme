@@ -5,6 +5,9 @@
         <!-- Menu Group -->
         <small class="ml-2 text-gray-500">GENERAL</small>
 
+        <!-- Divider -->
+        <div class="bg-gray-200 h-0.5 rounded-full mx-2"></div>
+
         <!-- Dashboard -->
         <li class="mb-2">
             <a class="flex items-center justify-start text-center text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 hover:text-white"
@@ -49,7 +52,7 @@
         </li>
 
         <!-- Menu Group -->
-        <small class="ml-2 text-gray-500">Administration</small>
+        <small class="ml-2 text-gray-500">ADMINISTRATION</small>
 
         <!-- Divider -->
         <div class="bg-gray-200 h-0.5 rounded-full mx-2"></div>
@@ -152,7 +155,7 @@
         </li>
 
         <!-- Menu Group -->
-        <small class="ml-2 text-gray-500">Adjustments & Info</small>
+        <small class="ml-2 text-gray-500">ADJUSTMENTS & INFO</small>
         <!-- Divider -->
         <div class="bg-gray-200 h-0.5 rounded-full mx-2"></div>
 
