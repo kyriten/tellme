@@ -156,6 +156,7 @@
 
         <!-- Menu Group -->
         <small class="ml-2 text-gray-500">ADJUSTMENTS & INFO</small>
+        
         <!-- Divider -->
         <div class="bg-gray-200 h-0.5 rounded-full mx-2"></div>
 
