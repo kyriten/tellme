@@ -29,9 +29,33 @@ Route::get('/dashboard', function () {
 // })->middleware(['auth', 'role:admin'])->name('admin.index');
 
 // Sidebar Admin
-Route::get('/dashboard/manage-complaint', function () {
-    return view('admin.manage-complaint');
-})->middleware(['auth', 'role:admin'])->name('admin.managecomplaint');
+Route::get('/dashboard/ticket', function () {
+    return view('admin.ticket');
+})->middleware(['auth', 'role:admin'])->name('admin.ticket');
+
+Route::get('/dashboard/message', function () {
+    return view('admin.message');
+})->middleware(['auth', 'role:admin'])->name('admin.message');
+
+Route::get('/dashboard/department', function () {
+    return view('admin.department');
+})->middleware(['auth', 'role:admin'])->name('admin.department');
+
+Route::get('/dashboard/label', function () {
+    return view('admin.label');
+})->middleware(['auth', 'role:admin'])->name('admin.label');
+
+Route::get('/dashboard/status', function () {
+    return view('admin.status');
+})->middleware(['auth', 'role:admin'])->name('admin.status');
+
+Route::get('/dashboard/priority', function () {
+    return view('admin.priority');
+})->middleware(['auth', 'role:admin'])->name('admin.priority');
+
+Route::get('/dashboard/faq', function () {
+    return view('admin.faq');
+})->middleware(['auth', 'role:admin'])->name('admin.faq');
 
 Route::get('/dashboard/manage-user', function () {
     return view('admin.manage-user');

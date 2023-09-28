@@ -7,7 +7,7 @@
 
                 <!-- Header Title -->
                 <h2 class="font-semibold text-xl flex-1 text-gray-800 dark:text-gray-200 leading-tight">
-                    {{ __('Manage Complaint') }}
+                    {{ __('FAQ') }}
                 </h2>
             </div>
         </header>
