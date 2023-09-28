@@ -23,6 +23,21 @@
 
         <!-- Right Button Group -->
         <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <!-- Notification Dropdown -->
+            <button
+                class="relative inline-flex items-center p-3 text-sm font-medium text-center text-whitefocus:ring-4 text-gray-500 hover:text-red-500 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button">
+                <svg class="h-5 w-5 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                <span class="sr-only">Notifications</span>
+                <div
+                    class="absolute inline-flex items-center justify-center w-6 h-6 text-[12px] p-2 font-medium text-white bg-red-500 border-2 border-white rounded-full -top-1 -right-0 dark:border-slate-500">
+                    5</div>
+            </button>
+
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
                     <button
@@ -89,6 +104,16 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
+                    <!-- Notification Dropdown -->
+                    <x-responsive-nav-link
+                        class="relative inline-flex items-center p-3 focus:ring-4 text-gray-500 hover:text-red-500 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        type="button">
+                        {{ __('Notifications') }}
+                        <div
+                            class="absolute inline-flex items-center justify-center w-6 h-6 text-[12px] p-2 font-medium text-white bg-red-500 border-2 border-white rounded-full -right-0 dark:border-slate-500">
+                            5</div>
+                    </x-responsive-nav-link>
+
                     <x-responsive-nav-link :href="route('admin.edit')">
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
