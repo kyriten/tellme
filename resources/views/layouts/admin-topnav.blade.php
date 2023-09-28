@@ -1,6 +1,7 @@
 <header x-data="{ open: false }">
     <!-- Primary Navigation Menu -->
-    <nav class="bg-white text-gray-500 shadow h-18 w-full px-8 py-2 flex items-center justify-between">
+    <nav
+        class="bg-white dark:bg-gray-900 dark:text-slate-100 text-gray-500 shadow h-18 w-full px-8 py-2 flex items-center justify-between">
         <div class="flex items-center">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
@@ -9,12 +10,23 @@
                 </a>
             </div>
         </div>
-        <!-- Settings Dropdown -->
+
+        <!-- Search Form -->
+        <div class="relative max-w-md w-full">
+            <div class="absolute top-1 left-2 inline-flex items-center p-2">
+                <i class="fas fa-search text-gray-400"></i>
+            </div>
+            <input
+                class="w-full h-10 pl-10 pr-4 py-1 text-base placeholder-gray-500 border rounded-full focus:border-[#991b1b] dark:focus:border-[#991b1b] focus:ring-[#991b1b] dark:focus:ring-[#991b1b]"
+                type="search" placeholder="Cari disini....">
+        </div>
+
+        <!-- Right Button Group -->
         <div class="hidden sm:flex sm:items-center sm:ml-6">
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
                     <button
-                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                        class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
                         <div>{{ Auth::user()->name }}</div>
 
                         <div class="ml-1">
@@ -28,7 +40,7 @@
                 </x-slot>
 
                 <x-slot name="content">
-                    <x-dropdown-link :href="route('profile.edit')">
+                    <x-dropdown-link href="{{ route('admin.edit') }}">
                         {{ __('Profile') }}
                     </x-dropdown-link>
 
@@ -39,7 +51,7 @@
                         <x-dropdown-link :href="route('logout')"
                             onclick="event.preventDefault();
                             this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                            {{ __('Logout') }}
                         </x-dropdown-link>
                     </form>
                 </x-slot>
@@ -77,7 +89,7 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
+                    <x-responsive-nav-link :href="route('admin.edit')">
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
 

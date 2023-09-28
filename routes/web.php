@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +28,28 @@ Route::get('/dashboard', function () {
 //     return view('admin.index');
 // })->middleware(['auth', 'role:admin'])->name('admin.index');
 
-Route::get('/dashboard/permission', function () {
-    return view('admin.masterdata');
-})->middleware(['auth', 'role:admin'])->name('admin.masterdata');
+// Sidebar Admin
+Route::get('/dashboard/manage-complaint', function () {
+    return view('admin.manage-complaint');
+})->middleware(['auth', 'role:admin'])->name('admin.managecomplaint');
+
+Route::get('/dashboard/manage-user', function () {
+    return view('admin.manage-user');
+})->middleware(['auth', 'role:admin'])->name('admin.manageuser');
+
+Route::get('/dashboard/manage-permission', function () {
+    return view('admin.manage-permission');
+})->middleware(['auth', 'role:admin'])->name('admin.managepermission');
+
+Route::get('/dashboard/settings', function () {
+    return view('admin.settings');
+})->middleware(['auth', 'role:admin'])->name('admin.settings');
+
+// Profile Admin
+Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
+    Route::get('/profile', [AdminController::class, 'edit'])->name('edit');
+    Route::patch('/profile', [AdminController::class, 'update'])->name('update');
+});
 
 // Breeze Default
 // Route::get('/dashboard', function () {

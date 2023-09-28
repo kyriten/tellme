@@ -1,6 +1,6 @@
 @if (session('message'))
     <div class="py-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="sm:pr-4 lg:pr-2 w-full">
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 relative shadow-sm sm:rounded-lg inline-flex w-full items-center"
                 role="alert">
                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
