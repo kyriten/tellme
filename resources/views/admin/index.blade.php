@@ -9,16 +9,6 @@
             <h2 class="font-semibold text-xl flex-1 text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Dashboard') }}
             </h2>
-
-            <!-- Search Form -->
-            <div class="relative max-w-md w-full">
-                <div class="absolute top-1 left-2 inline-flex items-center p-2">
-                    <i class="fas fa-search text-gray-400"></i>
-                </div>
-                <input
-                    class="w-full h-10 pl-10 pr-4 py-1 text-base placeholder-gray-500 border rounded-full focus:border-[#991b1b] dark:focus:border-[#991b1b] focus:ring-[#991b1b] dark:focus:ring-[#991b1b]"
-                    type="search" placeholder="Cari disini....">
-            </div>
         </div>
     </header>
 
