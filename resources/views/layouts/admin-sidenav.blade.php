@@ -9,7 +9,7 @@
         <div class="bg-gray-200 h-0.5 rounded-full mx-2"></div>
 
         <!-- Dashboard -->
-        <li class="mb-2">
+        <li>
             <a class="flex items-center justify-start text-center text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 hover:text-white"
                 href="{{ route('dashboard') }}">
                 <svg class="h-6 w-6 mr-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -24,7 +24,7 @@
         </li>
 
         <!-- Ticket -->
-        <li class="mb-2">
+        <li>
             <a class="flex items-center justify-start text-center text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 hover:text-white"
                 href="{{ route('admin.ticket') }}">
                 <svg class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -38,7 +38,7 @@
         </li>
 
         <!-- Message -->
-        <li class="mb-2">
+        <li class="mb-4">
             <a class="flex items-center justify-start text-center text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 hover:text-white"
                 href="{{ route('admin.message') }}">
                 <svg class="h-6 w-6 mr-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -143,7 +143,7 @@
         </li>
 
         <!-- Manage Permission -->
-        <li class="mb-2">
+        <li class="mb-4">
             <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 hover:text-white"
                 href="{{ route('admin.managepermission') }}">
                 <svg class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
