@@ -65,7 +65,7 @@
                                 <path clip-rule="evenodd" fill-rule="evenodd"
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                             </svg>
-                            Sort
+                            {{ __('Sort') }}
                         </button>
 
                         <!-- Button - Filter -->
@@ -78,7 +78,7 @@
                                     d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
                                     clip-rule="evenodd" />
                             </svg>
-                            Filter
+                            {{ __('Filter') }}
                             <svg class="-mr-1 ml-1.5 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path clip-rule="evenodd" fill-rule="evenodd"
@@ -87,42 +87,115 @@
                         </button>
                         <div id="filterDropdown"
                             class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
-                            <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">Choose
-                                brand</h6>
+
+                            <!-- Filtering by Branch Office -->
+                            <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                                {{ __('by Branch Office') }}
+                            </h6>
                             <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
                                 <li class="flex items-center">
                                     <input id="apple" type="checkbox" value=""
                                         class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                     <label for="apple"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Apple
-                                        (56)</label>
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Bogor') }}
+                                        (56)
+                                    </label>
                                 </li>
                                 <li class="flex items-center">
                                     <input id="fitbit" type="checkbox" value=""
                                         class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                     <label for="fitbit"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Microsoft
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Depok') }}
                                         (16)</label>
                                 </li>
                                 <li class="flex items-center">
                                     <input id="razor" type="checkbox" value=""
                                         class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                     <label for="razor"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Razor
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Cibubur') }}
                                         (49)</label>
                                 </li>
                                 <li class="flex items-center">
                                     <input id="nikon" type="checkbox" value=""
                                         class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                     <label for="nikon"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nikon
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Cimanggis') }}
                                         (12)</label>
                                 </li>
                                 <li class="flex items-center">
                                     <input id="benq" type="checkbox" value=""
                                         class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                     <label for="benq"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">BenQ
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Parung') }}
+                                        (74)</label>
+                                </li>
+                                <li class="flex items-center">
+                                    <input id="benq" type="checkbox" value=""
+                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                    <label for="benq"
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Pamulang') }}
+                                        (74)</label>
+                                </li>
+                            </ul>
+
+                            <!-- Filtering by Department -->
+                            <h6 class="mt-6 mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                                {{ __('by Department') }}
+                            </h6>
+                            <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
+                                <li class="flex items-center">
+                                    <input id="apple" type="checkbox" value=""
+                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                    <label for="apple"
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Training Center') }}
+                                        (56)
+                                    </label>
+                                </li>
+                                <li class="flex items-center">
+                                    <input id="fitbit" type="checkbox" value=""
+                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                    <label for="fitbit"
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('IT') }}
+                                        (16)</label>
+                                </li>
+                                <li class="flex items-center">
+                                    <input id="razor" type="checkbox" value=""
+                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                    <label for="razor"
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('HRD') }}
+                                        (49)</label>
+                                </li>
+                                <li class="flex items-center">
+                                    <input id="nikon" type="checkbox" value=""
+                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                    <label for="nikon"
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Multimedia') }}
+                                        (12)</label>
+                                </li>
+                                <li class="flex items-center">
+                                    <input id="benq" type="checkbox" value=""
+                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                    <label for="benq"
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Administration') }}
+                                        (74)</label>
+                                </li>
+                                <li class="flex items-center">
+                                    <input id="benq" type="checkbox" value=""
+                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-red-600 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                    <label for="benq"
+                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ __('Accounting') }}
                                         (74)</label>
                                 </li>
                             </ul>
@@ -164,6 +237,8 @@
                                     <td class="px-4 py-3">{{ $item->department }}</td>
                                     <td class="px-4 py-3">{{ $item->position }}</td>
                                     <td class="px-4 py-3">{{ $item->email_verified_at }}</td>
+
+                                    <!-- Action Buttons -->
                                     <td class="px-4 py-3 flex items-center justify-end">
                                         <button id="apple-imac-27-dropdown-button"
                                             data-dropdown-toggle="apple-imac-27-dropdown"
