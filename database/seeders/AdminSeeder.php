@@ -15,9 +15,13 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'admin',
+            'user_name' => 'admin',
+            'full_name' => 'Abimanyu Okysaputra Rachman',
             'email' => 'admin_it@setiajaya.toyota.id',
             'email_verified_at' => now(),
+            'branch_office' => 'Depok',
+            'department' => 'IT',
+            'position' => 'Admin',
             'password' => Hash::make('12345678'),
         ])->assignRole('admin');
     }
