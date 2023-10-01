@@ -26,6 +26,6 @@ class AdminSeeder extends Seeder
             'department' => 'IT',
             'position' => 'Admin',
             'password' => Hash::make('12345678'),
-        ])->assignRole('admin');
+        ])->assignRole('admin')->givePermissionTo('edit user');
     }
 }

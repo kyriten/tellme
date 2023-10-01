@@ -1,25 +1,44 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use DB;
+use App\Models\User;
+use App\Models\Branch;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ManageUserController extends Controller
 {
-    public function index(){
-        $users = DB::table('users')->select('user_name','full_name','email','branch_office','department','position','email_verified_at')->get();
+    use AuthorizesRequests;
 
-        return view('admin.manage-user')->with('users', $users);
+    public function index(){
+        $user = User::all();
+
+        return view('admin.manage-user', compact('user'));
     }
+
+    // public function show($id) {
+    //     $user = User::find($id);
+    //     return view('admin.manageuser.edit',['user'=>$user]);
+    // }
+
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit($id)
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = User::findOrFail($id);
+        $branches = Branch::all();
+
+        // Memeriksa apakah user ditemukan
+        if (!$user) {
+            return redirect()->route('admin.manageuser')->with('error', 'User not found');
+        }
+
+        $this->authorize('edit user');
+
+        return view('admin.manageuser.edit', compact('user', 'branches'));
     }
 
     /**
@@ -35,7 +54,7 @@ class ManageUserController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('admin.manageuser.edit')->with('status', 'profile-updated');
     }
 
     /**

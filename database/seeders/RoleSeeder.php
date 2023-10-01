@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class RoleSeeder extends Seeder
 {
@@ -22,5 +23,7 @@ class RoleSeeder extends Seeder
             'name' => 'user',
             'guard_name' => 'web'
         ]);
+
+        Permission::create(['name' => 'edit user']);
     }
 }
