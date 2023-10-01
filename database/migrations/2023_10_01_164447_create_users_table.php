@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('full_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('branch_office')->nullable();
+            $table->foreignId('branch_id')->constrained('branches')->onDelete('cascade')->onUpdate('cascade');
             $table->string('department')->nullable();
             $table->string('position')->nullable();
             $table->string('password');
