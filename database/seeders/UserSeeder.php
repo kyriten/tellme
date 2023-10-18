@@ -7,6 +7,7 @@ use App\Models\Branch;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -18,10 +19,12 @@ class UserSeeder extends Seeder
         $branchId = Branch::inRandomOrder()->first()->id;
 
         User::create([
-            'user_name' => 'kyriten',
-            'full_name' => 'Abimanyu Okysaputra Rachman',
+            'username' => 'kyriten',
+            'fullname' => 'Abimanyu Okysaputra Rachman',
             'email' => 'abimanyu@setiajaya.toyota.id',
             'email_verified_at' => now(),
+            'phone' => '081294797215',
+            'gender' => 'male',
             'branch_id' => $branchId,
             'department' => 'IT',
             'position' => 'Web Programmer',
@@ -29,14 +32,18 @@ class UserSeeder extends Seeder
         ])->assignRole('user');
 
         User::create([
-            'user_name' => 'mizuhara',
-            'full_name' => 'Mizuhara Chizuru',
+            'username' => 'mizuhara',
+            'fullname' => 'Mizuhara Chizuru',
             'email' => 'chizuru_mizuhara@setiajaya.toyota.id',
             'email_verified_at' => now(),
+            'phone' => '082287689980',
+            'gender' => 'female',
             'branch_id' => $branchId,
-            'department' => 'Administrasi',
+            'department' => 'Administration',
             'position' => 'Admin',
             'password' => Hash::make('12345678'),
         ])->assignRole('user');
+
+        User::factory()->count(30)->create();
     }
 }

@@ -18,14 +18,16 @@ class AdminSeeder extends Seeder
         $branchId = Branch::inRandomOrder()->first()->id;
 
         User::create([
-            'user_name' => 'admin',
-            'full_name' => 'Abimanyu Okysaputra Rachman',
+            'username' => 'admin',
+            'fullname' => 'Abimanyu Okysaputra Rachman',
             'email' => 'admin_it@setiajaya.toyota.id',
             'email_verified_at' => now(),
+            'phone' => '089587999912',
+            'gender' => 'male',
             'branch_id' => $branchId,
             'department' => 'IT',
             'position' => 'Admin',
             'password' => Hash::make('12345678'),
-        ])->assignRole('admin')->givePermissionTo('edit user');
+        ])->assignRole('admin');
     }
 }
