@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\Admin\ManageUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +24,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::get('/dashboard', function () {
-//     return view('admin.index');
-// })->middleware(['auth', 'role:admin'])->name('admin.index');
 
 // Sidebar Admin
 Route::get('/dashboard/ticket', function () {
@@ -58,17 +54,10 @@ Route::get('/dashboard/faq', function () {
     return view('admin.faq');
 })->middleware(['auth', 'role:admin'])->name('admin.faq');
 
-// Route::get('/dashboard/manage-user', function () {
-//     return view('admin.manage-user');
-// })->middleware(['auth', 'role:admin'])->name('admin.manageuser');
-
 // Admin: Manage User
-Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
-    Route::get('/manage-user/index', [ManageUserController::class, 'index'])->name('manageuser');
-    Route::get('/manage-user/edit/{id}', [ManageUserController::class, 'edit'])->name('edit');
-    Route::patch('/manage-user/update/{id}', [ManageUserController::class, 'update'])->name('update');
+Route::middleware(['auth', 'role:admin', 'can:edit-user'])->group(function () {
+    Route::resource('users', ManageUserController::class);
 });
-
 
 Route::get('/dashboard/manage-permission', function () {
     return view('admin.manage-permission');
