@@ -131,13 +131,13 @@
         <!-- Manage User -->
         <li>
             <a class="flex items-center justify-start text-gray-500 py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 hover:text-white"
-                href="{{ route('admin.manageuser') }}">
+                href="/users">
                 <svg class="h-6 w-6 mr-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
                     <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
-                    <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
+                    <path d="M4 12v6a8~ 3 0 0 0 16 0v-6" />
                 </svg> {{ __('Manage User') }}
             </a>
         </li>
@@ -156,7 +156,7 @@
 
         <!-- Menu Group -->
         <small class="ml-2 text-gray-500">ADJUSTMENTS & INFO</small>
-        
+
         <!-- Divider -->
         <div class="bg-gray-200 h-0.5 rounded-full mx-2"></div>
 
