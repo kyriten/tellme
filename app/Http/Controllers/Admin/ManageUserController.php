@@ -2,79 +2,107 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
-use App\Models\Branch;
 use App\Http\Controllers\Controller;
+use App\Models\Branch;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Redirect;
 
 class ManageUserController extends Controller
 {
-    use AuthorizesRequests;
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $users = User::sortable()->paginate(10);
 
-    public function index(){
-        $user = User::all();
-
-        return view('admin.manage-user', compact('user'));
+        return view('admin.manage-user', compact('users'));
     }
 
-    // public function show($id) {
-    //     $user = User::find($id);
-    //     return view('admin.manageuser.edit',['user'=>$user]);
-    // }
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $branches = Branch::all();
+
+        return view('admin.manageuser.create', compact('branches'));
+    }
 
     /**
-     * Display the user's profile form.
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        $branches = Branch::all();
+        try {
+            $users = User::findOrFail($id);
+            $branches = Branch::all();
+            $this->authorize('edit-user');
 
-        // Memeriksa apakah user ditemukan
-        if (!$user) {
-            return redirect()->route('admin.manageuser')->with('error', 'User not found');
+            return view('admin.manageuser.edit', compact('users', 'branches'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            // Handle the case where the model was not found (e.g., show a 404 page)
+            abort(404);
         }
 
-        $this->authorize('edit user');
-
-        return view('admin.manageuser.edit', compact('user', 'branches'));
+        // Handle the case where the user was not found (e.g., show a 404 page)
+        if (!$users) {
+            return redirect('manage-user')->with('error', 'User not found');
+        }
     }
 
     /**
-     * Update the user's profile information.
+     * Update the specified resource in storage.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request, $id)
     {
-        $request->user()->fill($request->validated());
+        // Validate the request data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:user,email,' . $id,
+            // Add more validation rules for other fields
+        ]);
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
 
-        $request->user()->save();
+        // Find the user by ID
+        $users = User::findOrFail($id);
 
-        return Redirect::route('admin.manageuser.edit')->with('status', 'profile-updated');
+        // Update user attributes
+        $users->name = $validatedData['name'];
+        $users->email = $validatedData['email'];
+
+
+        // Save the updated user
+        $users->save();
+
+        return Redirect::route('admin.manageuser.edit', ['id' => $id])->with('status', 'profile-updated');
     }
 
     /**
-     * Delete the user's account.
+     * Remove the specified resource from storage.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(string $id)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        //
     }
 }

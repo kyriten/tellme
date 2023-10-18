@@ -3,33 +3,33 @@
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
         </h2>
-
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Update your account's profile information and email address.") }}
-        </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+    <form class="mt-6 space-y-6" method="post" action="/users/{{ $users->id }}">
         @csrf
-    </form>
 
-    <form class="mt-6 space-y-6" method="post" action="{{ route('profile.update') }}">
-        @csrf
         @method('patch')
-
-        <!-- Name -->
+        <!-- User Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input class="mt-1 block w-full" id="name" name="name" type="text" :value="old('name', $user->name)"
-                required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-label for="user_name" :value="__('Username')" />
+            <x-text-input class="mt-1 block w-full" id="username" name="username" type="text" :value="old('username', $users->username)"
+                required autofocus autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('username')" />
+        </div>
+
+        <!-- Full Name -->
+        <div>
+            <x-input-label for="full_name" :value="__('Fullname')" />
+            <x-text-input class="mt-1 block w-full" id="fullname" name="fullname" type="text" :value="old('fullname', $users->fullname)"
+                required autofocus autocomplete="fullname" />
+            <x-input-error class="mt-2" :messages="$errors->get('fullname')" />
         </div>
 
         <!-- Email Address-->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input class="mt-1 block w-full" id="email" name="email" type="email" :value="old('email', $user->email)"
-                required autocomplete="username" />
+            <x-text-input class="mt-1 block w-full" id="email" name="email" type="email" :value="old('email', $users->email)"
+                required autocomplete="email" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
@@ -53,29 +53,51 @@
             @endif
         </div>
 
-        <!-- Job Title -->
+        <!-- Phone -->
+        <div>
+            <x-input-label for="phone" :value="__('Phone Number')" />
+            <x-text-input class="mt-1 block w-full" id="phone" name="phone" type="text" :value="old('phone', $users->phone)"
+                required autofocus autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+        </div>
+
+        <!-- Gender -->
+        <div>
+            <x-input-label for="gender" :value="__('Gender')" />
+            <x-text-input class="mt-1 block w-full" id="gender" name="gender" type="text" :value="old('gender', $users->gender)"
+                required autofocus autocomplete="gender" />
+            <x-input-error class="mt-2" :messages="$errors->get('gender')" />
+        </div>
+
+        <!-- Department -->
+        <div>
+            <x-input-label for="department" :value="__('Department')" />
+            <x-text-input class="mt-1 block w-full" id="department" name="department" type="text" :value="old('department', $users->department)"
+                required autofocus autocomplete="department" />
+            <x-input-error class="mt-2" :messages="$errors->get('department')" />
+        </div>
+
+        <!-- Position -->
         <div>
             <x-input-label for="position" :value="__('Position')" />
-            <x-text-input class="mt-1 block w-full" id="position" name="position" type="text" :value="old('position', $user->position)"
+            <x-text-input class="mt-1 block w-full" id="position" name="position" type="text" :value="old('position', $users->position)"
                 required autofocus autocomplete="position" />
             <x-input-error class="mt-2" :messages="$errors->get('position')" />
         </div>
 
-        <!-- Branch -->
+        <!-- Branch Office -->
         <div>
-            <x-input-label for="branch" :value="__('Branch')" />
+            <x-input-label for="branch_id" :value="__('Branch Office')" />
             <div class="relative">
-                <x-select class="block mt-1 w-full" id="branch" name="id">
-                    <option value="@selected(old('branch'))" selected disabled hidden></option>
-
-                    <option value="Bogor">Bogor</option>
-                    <option value="Depok">Depok</option>
-                    <option value="Cibubur">Cibubur</option>
-                    <option value="Cimanggis">Cimanggis</option>
-                    <option value="Parung">Parung</option>
-                    <option value="Pamulang">Pamulang</option>
+                <x-select class="block mt-1 w-full" id="branch_id" name="branch_id">
+                    @foreach ($branches as $branch)
+                        <option value="{{ $branch->branch_id }}"
+                            {{ old('branch_id', $users->branch_id) == $branch->id ? 'selected' : '' }}>
+                            {{ $branch->name }}
+                        </option>
+                    @endforeach
                 </x-select>
-                <x-input-error class="mt-2" :messages="$errors->get('branch')" />
+                <x-input-error class="mt-2" :messages="$errors->get('branch_office')" />
             </div>
 
             <div class="flex items-center gap-4 mt-4">
