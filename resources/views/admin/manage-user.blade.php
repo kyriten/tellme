@@ -209,21 +209,14 @@
             <form action="/users" method="get">
                 @csrf
 
-                <div class="overflow-x-auto">
-                    <div class="overflow-scroll">
-                        <table class="min-w-max w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-max w-full table-auto text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-4 py-3"></th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('username')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('fullname')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('email')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('phone')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('gender')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('branch_office')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('department')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('position')</th>
-                                    <th scope="col" class="px-4 py-3">@sortablelink('email_verified_on')</th>
+                                    @foreach (['username', 'fullname', 'email', 'phone', 'gender', 'branch_office', 'department', 'position', 'email_verified_on'] as $sortBy)
+                                        <th scope="col" class="px-4 py-3">@sortablelink($sortBy)</th>
+                                    @endforeach
                                     <th scope="col" class="px-4 py-3">
                                         <span class="sr-only">Actions</span>
                                     </th>
@@ -283,13 +276,12 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="7">No user available here</td>
+                                        <td colspan="12">No user available here</td>
                                     </tr>
                                 @endforelse
                             </tbody>
                         </table>
                     </div>
-                </div>
             </form>
 
             <!-- Pagination -->
